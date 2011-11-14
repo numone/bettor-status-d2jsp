@@ -1,0 +1,9 @@
+###Mediator###
+persona
+personb
+personc
+
+###Welcher###
+persond
+persone
+personf
