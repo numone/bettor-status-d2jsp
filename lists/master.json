@@ -1,0 +1,22 @@
+{
+	version: 2.92,
+	sports:[
+		{
+			list:'http://i1115.photobucket.com/albums/k543/jspbettorlist1/BettorsList.png',
+			title:'NBA/MLB/NFL',
+			listRunner:[
+				{name: 'Max(Cc)',link: 'http://forums.d2jsp.org/user.php?i=227147'},
+				{name: 'SimCity',link: 'http://forums.d2jsp.org/user.php?i=387060'},
+				{name: 'TJZRoCKeR',link: 'http://forums.d2jsp.org/user.php?i=639511'}
+			]
+		},
+		{
+			list:'http://i3.photobucket.com/albums/y62/Cratic/List.jpg',
+			title:'Hockey',
+			listRunner:[
+				{name: 'Cratic',link: 'http://forums.d2jsp.org/user.php?i=280200'},
+				{name:'Tomspeople',link:'http://forums.d2jsp.org/user.php?i=198576'}
+			]
+		}
+	]
+}
