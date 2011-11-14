@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		<script>
+			function onRequest(data,sender,callback) {
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function(data) {
+					if (xhr.readyState == 4) {
+						if (xhr.status == 200) {
+							var data = xhr.responseText;
+							callback(data);
+						} else {
+							callback(false);
+						}
+					}
+				}
+
+				var url = 'http://d2jsp-bettor-list.angelfire.com/index.html';
+				xhr.open('GET', url, true);
+				xhr.send();
+			};
+
+			chrome.extension.onRequest.addListener(onRequest);
+		</script>
+	</body>
+</html>
