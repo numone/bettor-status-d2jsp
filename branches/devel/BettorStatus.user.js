@@ -4,7 +4,7 @@
 // @description   Puts the betting status of the person in their avatar
 // @version       3.0.0
 // @include       http://forums.d2jsp.org/*
-// @require       http://userscripts.org/scripts/source/74204.user.js
+// @require       https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js
 // ==/UserScript==
 /**************************************
 ** COPYRIGHT NUMONE@D2jsp.org ******
@@ -19,54 +19,76 @@ var PAGE_TYPE = window.location.href.match(/\/game\/forum_thread.pl/) ? 'forum_t
 	: 'UNKNOWN';
 var LIST = {}; // holds the list of everything
 
+function showStatus(nameList,nameHolders){
+	for(var i=0;i<nameList.length;i++){
+		var status = LIST.sports[0].names[nameList[i].toUpperCase()] ? LIST.sports[0].names[nameList[i].toUpperCase()].status : 'unknown';
+		$(nameHolders[i]).append('<div>Bettor Status: ' + status + '</div>');
+	}
+};
+
 function parsePage(){
-	alert(JSON.stringify(LIST));
+	var names = [],nameHolders = [];
+	switch(PAGE_TYPE){
+		case 'thread':
+			$('BODY DIV.tbb FORM[name="REPLIER"] DL DT A[href^="user.php"]').each(function(){
+				names.push($(this).text());
+			});
+			$('BODY DIV.tbb FORM[name="REPLIER"] DL DD TABLE.ftb TBODY TR TD.bc1').each(function(){
+				nameHolders.push(this);
+			});
+			break;
+	}
+	
+	if(names.length > 0 && nameHolders.length > 0){
+		showStatus(names,nameHolders);
+	}
 };
 
 function gatherSport(sequence){
-	if(sequence + 1 === LIST.sports.length){
+	if(sequence + 1 > LIST.sports.length){
 		//save to cache
-		GM_setValue('BSExpireTime',new Date().getTime() + CACHE_TIME);
+		GM_setValue('BSExpireTime',(new Date().getTime() + CACHE_TIME) + '');
 		GM_setValue('BSListInfo',JSON.stringify(LIST));
 		
 		window.setTimeout(function() { parsePage(); },0);
+		return;
 	}
-	var sport = LIST.sports[sequence];
-	sport.names = {};
+	LIST.sports[sequence].names = {};
 	
 	GM_xmlhttpRequest({
 		method:'GET',
-		url:sport.namesURL,
+		url:LIST.sports[sequence].namesURL + '?' + (new Date().getTime()),
 		headers: {
 	        'User-agent': 'Mozilla/4.0 (compatible) Greasemonkey',
 	        'Accept': 'application/atom+xml,application/xml,text/xml',
 	    },
 		onload:function(response){
-			parseNames(sport.names,response.responseText);
+			parseNames(sequence,response.responseText);
 			gatherSport(sequence + 1);
 		},
 		onerror:function(err){
-			showErrorMsg('Error retrieving list ' + sport.title);
+			showErrorMsg('Error retrieving list ' + LIST.sports[sequence].title);
 		}
 	});
 };
 
-function parseNames(nameObj,list){
+function parseNames(sequence,responseText){
 	var userStatus;
-	var split = list.split(/\r\n|\r|\n/);
+	responseText = responseText.replace(/\r\n|\r|\n/gi,'#EL##SL#');
+	var split = responseText.split('#EL##SL#');
 	for(var i=0;i<split.length;i++){
 		var temp = split[i];
 		if(temp.match(/###[a-zA-Z0-9]+###/)){
-			//console.log('Title: ' + temp.replace(/#/g,''));
+			//console.log('Title: ' + temp.replace(/#/g,'').trim());
 			userStatus = temp.replace(/#/g,'').trim();
 		}else if(temp.length > 0){
 			if(temp.match(/[^\s]\s+\/\/[0-9]+/)){
 				var temp2 = temp.split(/\s+\/\//);
 				//console.log('Name: ' + temp2[0].replace(/\/\//g,'').trim() + ' with number: ' + temp2[1].trim());
-				nameObj[temp2[0].replace(/\/\//g,'').trim().toUpperCase()] = {status:userStatus,id:temp2[1].trim()};
+				LIST.sports[sequence].names[temp2[0].replace(/\/\//g,'').trim().toUpperCase()] = {status:userStatus,id:temp2[1].trim()};
 			}else{
 				//console.log('Name: ' + temp.trim() + ' length: ' + temp.trim().length);
-				nameObj[temp.trim().toUpperCase()] = {status:userStatus};
+				LIST.sports[sequence].names[temp.trim().toUpperCase()] = {status:userStatus};
 			}
 		}else{
 			//console.log('seporator');
@@ -90,7 +112,7 @@ function showErrorMsg(msg){
 	document.body.appendChild(div);
 };
 
-function retrieveCache(){
+function retrieveCache(){//return false;
 	var expTime = GM_getValue('BSExpireTime');
 	if(!expTime){//first load?
 		return false;
@@ -101,7 +123,7 @@ function retrieveCache(){
 	}
 	
 	LIST = JSON.parse(GM_getValue('BSListInfo'));
-	widow.setTimeout(function(){ parsePage(); },0);
+	window.setTimeout(function(){ parsePage(); },0);
 	return true;
 };
 
@@ -114,7 +136,6 @@ function retrieveHeader(){
 	        'Accept': 'application/atom+xml,application/xml,text/xml',
 	    },
 		onload:function(response){
-			alert(response.responseText);
 			LIST = JSON.parse(response.responseText);
 			gatherSport(0);
 		},
