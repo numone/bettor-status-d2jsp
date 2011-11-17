@@ -24,7 +24,7 @@ function parsePage(){
 };
 
 function gatherSport(sequence){
-	if(sequence + 1 == LIST.sports.length){
+	if(sequence + 1 === LIST.sports.length){
 		//save to cache
 		GM_setValue('BSExpireTime',new Date().getTime() + CACHE_TIME);
 		GM_setValue('BSListInfo',JSON.stringify(LIST));
@@ -34,7 +34,7 @@ function gatherSport(sequence){
 	var sport = LIST.sports[sequence];
 	sport.names = {};
 	
-	GM_xmlhttpRequest{
+	GM_xmlhttpRequest({
 		method:'GET',
 		url:sport.namesURL,
 		headers: {
@@ -48,7 +48,7 @@ function gatherSport(sequence){
 		onerror:function(err){
 			showErrorMsg('Error retrieving list ' + sport.title);
 		}
-	}
+	});
 };
 
 function parseNames(nameObj,list){
@@ -106,7 +106,7 @@ function retrieveCache(){
 };
 
 function retrieveHeader(){
-	GM_xmlhttpRequest{
+	GM_xmlhttpRequest({
 		method:'GET',
 		url:HEADER_URL,
 		headers: {
@@ -114,13 +114,14 @@ function retrieveHeader(){
 	        'Accept': 'application/atom+xml,application/xml,text/xml',
 	    },
 		onload:function(response){
+			alert(response.responseText);
 			LIST = JSON.parse(response.responseText);
 			gatherSport(0);
 		},
 		onerror:function(err){
 			showErrorMsg('Error retrieving list header');
 		}
-	}
+	});
 };
 
 
