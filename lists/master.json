@@ -10,14 +10,6 @@
 				{"name": "TJZRoCKeR","link": "http://forums.d2jsp.org/user.php?i=639511"}
 			],
 			"namesURL": "http://bettor-status-d2jsp.googlecode.com/svn/lists/test.txt"
-		}/*,
-		{
-			list:'http://i3.photobucket.com/albums/y62/Cratic/List.jpg',
-			title:'Hockey',
-			listRunner:[
-				{name: 'Cratic',link: 'http://forums.d2jsp.org/user.php?i=280200'},
-				{name:'Tomspeople',link:'http://forums.d2jsp.org/user.php?i=198576'}
-			]
-		}*/
+		}
 	]
 }

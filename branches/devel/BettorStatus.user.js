@@ -108,7 +108,7 @@ function retrieveCache(){
 function retrieveHeader(){
 	GM_xmlhttpRequest({
 		method:'GET',
-		url:HEADER_URL,
+		url:HEADER_URL + '?' + (new Date().getTime()),
 		headers: {
 	        'User-agent': 'Mozilla/4.0 (compatible) Greasemonkey',
 	        'Accept': 'application/atom+xml,application/xml,text/xml',
