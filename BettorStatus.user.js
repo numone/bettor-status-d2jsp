@@ -12,12 +12,31 @@
 //globals
 var CACHE_TIME = 1000 * 60 * 60; //1000 to convert to seconds, 60 to convert to min, 60 for 60 minutes
 var HEADER_URL = 'http://bettor-status-d2jsp.googlecode.com/svn/lists/master.json';
-var PAGE_TYPE = window.location.href.match(/\/game\/forum_thread.pl/) ? 'forum_thread'
-	: window.location.href.match(/\/topic\.php/) ? 'thread'
-	: window.location.href.match(/\/pm\.php/) ? 'pm'
+var PAGE_TYPE = window.location.href.match(/\/topic\.php/) ? 'thread'
+	: window.location.href.match(/\/pm\.php\?c\=3/) ? 'pm'
 	: window.location.href.match(/\/user\.php/) ? 'user'
 	: 'UNKNOWN';
 var LIST = {}; // holds the list of everything
+
+function showPreferencesMenu(){
+	$('BODY').css({'overflow':'hidden'});
+	$('BODY').append('<div id="Bettor_Status_bkgrnd" style="position:absolute;top:0%;left:0%;width:100%;height:100%;background-color:black;z-index:1001;-moz-opacity:0.6;opacity:.60;filter:alpha(opacity=60)">' +
+		'</div><div id="Bettor_Status_forgrnd" style="position:absolute;top:25%;left:25%;width:50%;height:50%;padding:16px;border:16px solid #8FBEFF;background-color:#E4EBFF;z-index:1002;overflow:auto;"></div>');
+	var holder = $('#Bettor_Status_forgrnd');
+	$(holder).html('<div style="font-size:12pt;"><span style="font-weight:bold;text-decoration:underline;">Bettor Status Preferences:</span><span id="Bettor_Status_close" style="float:right;cursor:pointer;color:blue;text-decoration:underline;">Close</span></div>');
+	$('#Bettor_Status_close').click(function(){
+		$('#Bettor_Status_bkgrnd').remove();
+		$('#Bettor_Status_forgrnd').remove();
+		$('BODY').css({'overflow':'auto'});
+	});
+};
+
+function showPreferencesLink(){
+	$('BODY DIV.bar DIV.barR').append('<a href="#" id="Bettor_Status_pref">Bettor Status Preferences</a>');
+	$('#Bettor_Status_pref').click(function(){
+		showPreferencesMenu();
+	});
+};
 
 function showStatus(nameList,nameHolders){
 	for(var i=0;i<nameList.length;i++){
@@ -37,11 +56,30 @@ function parsePage(){
 				nameHolders.push(this);
 			});
 			break;
+		case 'pm':
+			$('BODY FORM[name="a"] TABLE:eq(0) TR TD DL DT A[href^="user.php"]').each(function(){
+				names.push($(this).text());
+			});
+			$('BODY FORM[name="a"] TABLE:eq(0) TR TD DL DD TABLE TD.bc1').each(function(){
+				nameHolders.push(this);
+			});
+			break;
+		case 'user':
+			$('BODY TABLE TR TD DL DT A[href="#"]').each(function(){
+				names.push($(this).text());
+			});
+			$('BODY TABLE TR TD DL DD UL.bc1').each(function(){
+				var list = document.createElement('LI');
+				this.appendChild(list);
+				nameHolders.push(list);
+			});
+			break;
 	}
-	
+
 	if(names.length > 0 && nameHolders.length > 0){
 		showStatus(names,nameHolders);
 	}
+	showPreferencesLink();
 };
 
 function gatherSport(sequence){
@@ -112,7 +150,7 @@ function showErrorMsg(msg){
 	document.body.appendChild(div);
 };
 
-function retrieveCache(){//return false;
+function retrieveCache(){return false;
 	var expTime = GM_getValue('BSExpireTime');
 	if(!expTime){//first load?
 		return false;
