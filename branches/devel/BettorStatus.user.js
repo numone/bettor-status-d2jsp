@@ -29,6 +29,33 @@ function showPreferencesMenu(){
 		$('#Bettor_Status_forgrnd').remove();
 		$('BODY').css({'overflow':'auto'});
 	});
+	
+	// display type
+	$(holder).append('<span style="font-weight:bold;">Status Display:</span><input type="radio" name="dispType" value="rolled" />Rolled Up <input type="radio" name="dispType" value="seporated" />Seporated');
+	$(holder).find('INPUT[name="dispType"][value="' + GM_getValue('BSDispType','rolled') + '"]').prop('checked',true);
+	$(holder).find('INPUT[name="dispType"]').click(function(){
+		GM_setValue('BSDispType',$(this).prop('value'));
+	});
+	
+	// use list checkboxes
+	$(holder).append('<div style="margin-top:15px;font-weight:bold;">Use Status From The Following Sports:</div>');
+	for(var i=0;i<LIST.sports.length;i++){
+		$(holder).append('<input type="checkbox" name="useSport" value="' + LIST.sports[i].title + '" /> ' + LIST.sports[i].title + '<br />');
+		if(!(GM_getValue('BSHideSpt' + LIST.sports[i].title,false))){
+			$(holder).find('INPUT[type="checkbox"][value="' + LIST.sports[i].title + '"]').prop('checked',true);
+		}
+	}
+	$(holder).find('INPUT[type="checkbox"][name="useSport"]').click(function(){
+		if($(this).prop('checked')){
+			GM_setValue('BSHideSpt' + $(this).prop('value'),false);
+		}else{
+			GM_setValue('BSHideSpt' + $(this).prop('value'),true);
+		}
+	});
+	
+	// names last updated
+	var timeAgo = Math.round(((new Date().getTime()) - (GM_getValue('BSExpireTime') - CACHE_TIME)) / 60000);
+	$(holder).append('<br /><br /><br /><span style="font-style:italic;">List Names Last Updated ' + timeAgo + ' minutes ago.</span>');
 };
 
 function showPreferencesLink(){
@@ -88,7 +115,8 @@ function gatherSport(sequence){
 		GM_setValue('BSExpireTime',(new Date().getTime() + CACHE_TIME) + '');
 		GM_setValue('BSListInfo',JSON.stringify(LIST));
 		
-		window.setTimeout(function() { parsePage(); },0);
+		parsePage();
+		//window.setTimeout(function() { parsePage(); },0);
 		return;
 	}
 	LIST.sports[sequence].names = {};
@@ -150,7 +178,7 @@ function showErrorMsg(msg){
 	document.body.appendChild(div);
 };
 
-function retrieveCache(){return false;
+function retrieveCache(){//return false;
 	var expTime = GM_getValue('BSExpireTime');
 	if(!expTime){//first load?
 		return false;
@@ -161,7 +189,8 @@ function retrieveCache(){return false;
 	}
 	
 	LIST = JSON.parse(GM_getValue('BSListInfo'));
-	window.setTimeout(function(){ parsePage(); },0);
+	parsePage();
+	//window.setTimeout(function(){ parsePage(); },0);
 	return true;
 };
 
