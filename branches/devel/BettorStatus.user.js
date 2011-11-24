@@ -18,6 +18,12 @@ var PAGE_TYPE = window.location.href.match(/\/topic\.php/) ? 'thread'
 	: 'UNKNOWN';
 var LIST = {}; // holds the list of everything
 
+// universal fieldset
+$('BODY').append('<fieldset style="padding:5px;position:absolute;z-index:100;" id="bsFieldset"><legend><span></span><img style="vertical-align:inherit;margin-left:2px;cursor:pointer;" src="images/x.gif" /></legend><div class="main"></div></fieldset>');
+$('#bsFieldset LEGEND IMG').click(function(){$('#bsFieldset').hide();});
+$('#bsFieldset').hide();
+
+
 function showPreferencesMenu(){
 	$('BODY').css({'overflow':'hidden'});
 	$('BODY').append('<div id="Bettor_Status_bkgrnd" style="position:absolute;top:0%;left:0%;width:100%;height:100%;background-color:black;z-index:1001;-moz-opacity:0.6;opacity:.60;filter:alpha(opacity=60)">' +
@@ -81,29 +87,58 @@ function showStatus(nameList,nameHolders){
 			var sport = LIST.sports[j];
 			if(!(GM_getValue('BSHideSpt' + sport.title,false))){
 				if(sport.names[nameList[i].toUpperCase()]){
-					resultsArray.push({sport:sport.title,status:sport.names[nameList[i].toUpperCase()].status});
+					resultsArray.push({sport:sport.title,status:sport.names[nameList[i].toUpperCase()].status,id:j});
 					if(results.rank < LIST.statusInfo[sport.names[nameList[i].toUpperCase()].status].rank){
 						results = {rank:LIST.statusInfo[sport.names[nameList[i].toUpperCase()].status].rank,status:sport.names[nameList[i].toUpperCase()].status};
 					}
 				}else{
-					resultsArray.push({sport:sport.title,status:'unknown'});
+					resultsArray.push({sport:sport.title,status:'Unknown',id:j});
 					if(results.rank < 0){
-						results = {rank:0,status:'unknown'};
+						results = {rank:0,status:'Unknown'};
 					}
 				}
 			}
 		}
 		if(results.rank > -1){
 			if(GM_getValue('BSDispType','rolled') == 'rolled'){
-				$(nameHolders[i]).append('<div>Bettor Status: ' + results.status + '</div>');
+				$(nameHolders[i]).append('<div class="sportStatusHolder"><a href="javascript:void(0);">Bettor Status</a>: ' + colorTheStatus(results.status) + '</div>');
+				var resArray = resultsArray;
+				$(nameHolders[i]).find('DIV.sportStatusHolder:last A').click(function(){
+					showMultiSportsInfo(resArray,this);
+				});
 			}else{
-				var appendStr = '';
 				for(var j=0;j<resultsArray.length;j++){
-					appendStr += '<div>' + resultsArray[j].sport + ': ' + resultsArray[j].status + '</div>';
+					var appendStr = '<div class="sportStatusHolder"><a href="javascript:void(0);">' + resultsArray[j].sport + '</a>: ' + colorTheStatus(resultsArray[j].status) + '</div>';
+					$(nameHolders[i]).append(appendStr);
+					var theID = resultsArray[j].id;
+					$(nameHolders[i]).find('DIV.sportStatusHolder:last A').click(function(){
+						showSingleSportInfo(theID,this);
+					});
 				}
-				$(nameHolders[i]).append(appendStr);
 			}
 		}
+	}
+};
+
+function showSingleSportInfo(id,link){
+	var offset = $(link).offset();
+	var sportInfo = LIST.sports[id];
+	$('#bsFieldset').css({top:offset.top,left:offset.left}).show();
+	$('#bsFieldset LEGEND SPAN').html(sportInfo.title + ' Info');
+	$('#bsFieldset DIV.main').html('<a href="' + sportInfo.list + '" target="_blank">Link To List Image</a><br /><br />List Ran By:<br />');
+	for(var i=0;i<sportInfo.listRunner.length;i++){
+		$('#bsFieldset DIV.main').append('<a href="' + sportInfo.listRunner[i].link + '" target="_blank">'  + sportInfo.listRunner[i].name + '</a><br />');
+	}	
+};
+
+function showMultiSportsInfo(resultsArray,link){
+};
+
+function colorTheStatus(status){
+	if(LIST.statusInfo[status]){
+		return '<span style="color:' + LIST.statusInfo[status].color + ';font-weight:bold;">' + status + '</span>';
+	}else{
+		return '<span style="color:gray;font-weight:bold;">' + status + '</span>';
 	}
 };
 
