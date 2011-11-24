@@ -101,19 +101,25 @@ function showStatus(nameList,nameHolders){
 		}
 		if(results.rank > -1){
 			if(GM_getValue('BSDispType','rolled') == 'rolled'){
-				$(nameHolders[i]).append('<div class="sportStatusHolder"><a href="javascript:void(0);">Bettor Status</a>: ' + colorTheStatus(results.status) + '</div>');
-				var resArray = resultsArray;
-				$(nameHolders[i]).find('DIV.sportStatusHolder:last A').click(function(){
-					showMultiSportsInfo(resArray,this);
-				});
+				function createLink(){
+					$(nameHolders[i]).append('<div class="sportStatusHolder"><a href="javascript:void(0);">Bettor Status</a>: ' + colorTheStatus(results.status) + '</div>');
+					var resArray = resultsArray;
+					$(nameHolders[i]).find('DIV.sportStatusHolder:last A').click(function(){
+						showMultiSportsInfo(resArray,this);
+					});
+				}
+				createLink();
 			}else{
 				for(var j=0;j<resultsArray.length;j++){
-					var appendStr = '<div class="sportStatusHolder"><a href="javascript:void(0);">' + resultsArray[j].sport + '</a>: ' + colorTheStatus(resultsArray[j].status) + '</div>';
-					$(nameHolders[i]).append(appendStr);
-					var theID = resultsArray[j].id;
-					$(nameHolders[i]).find('DIV.sportStatusHolder:last A').click(function(){
-						showSingleSportInfo(theID,this);
-					});
+					function createLink(){
+						var appendStr = '<div class="sportStatusHolder"><a href="javascript:void(0);">' + resultsArray[j].sport + '</a>: ' + colorTheStatus(resultsArray[j].status) + '</div>';
+						$(nameHolders[i]).append(appendStr);
+						var theID = resultsArray[j].id;
+						$(nameHolders[i]).find('DIV.sportStatusHolder:last A').click(function(){
+							showSingleSportInfo(theID,this);
+						});
+					}
+					createLink();
 				}
 			}
 		}
@@ -125,13 +131,24 @@ function showSingleSportInfo(id,link){
 	var sportInfo = LIST.sports[id];
 	$('#bsFieldset').css({top:offset.top,left:offset.left}).show();
 	$('#bsFieldset LEGEND SPAN').html(sportInfo.title + ' Info');
-	$('#bsFieldset DIV.main').html('<a href="' + sportInfo.list + '" target="_blank">Link To List Image</a><br /><br />List Ran By:<br />');
+	$('#bsFieldset DIV.main').html('<a href="' + sportInfo.list + '" target="_blank">Link To ' + sportInfo.title + ' List Image</a><br /><br />List Ran By:<br />');
 	for(var i=0;i<sportInfo.listRunner.length;i++){
 		$('#bsFieldset DIV.main').append('<a href="' + sportInfo.listRunner[i].link + '" target="_blank">'  + sportInfo.listRunner[i].name + '</a><br />');
 	}	
 };
 
 function showMultiSportsInfo(resultsArray,link){
+	var offset = $(link).offset();
+	$('#bsFieldset').css({top:offset.top,left:offset.left}).show();
+	$('#bsFieldset LEGEND SPAN').html('Bettor Status Info');
+	for(var i=0;i<resultsArray.length;i++){
+		var t = resultsArray[i];
+		$('#bsFieldset DIV.main').append('<div><a title="links to ' + t.sport + ' list" href="' + LIST.sports[t.id].list + '" target="_blank">' + t.sport + '</a>: ' + colorTheStatus(t.status) + ' <span style="font-size:7pt;">Ran By: </span></div>');
+		for(var j=0;j<LIST.sports[t.id].listRunner.length;j++){
+			var o = LIST.sports[t.id].listRunner[j];
+			$('#bsFieldset DIV.main DIV:last SPAN:last').append(' <a href="' + o.link + '" target="_blank">' + o.name + '</a>');
+		}
+	}
 };
 
 function colorTheStatus(status){
@@ -139,6 +156,49 @@ function colorTheStatus(status){
 		return '<span style="color:' + LIST.statusInfo[status].color + ';font-weight:bold;">' + status + '</span>';
 	}else{
 		return '<span style="color:gray;font-weight:bold;">' + status + '</span>';
+	}
+};
+
+function showMedList(){
+	if(!PAGE_TYPE == 'thread'){
+		return;
+	}
+	
+	var forumID = parseInt(window.location.href.split('&f=')[1]);
+	var theSport = false;
+	for(var i=0;i<LIST.sports.length;i++){
+		if(LIST.sports[i].medForumIDs){
+			var medList = LIST.sports[i].medForumIDs;
+			for(var j=0;j<medList.length;j++){
+				if(medList[j] == forumID){
+					theSport = LIST.sports[i];
+					break;
+				}
+			}
+		}
+	}
+	
+	if(!theSport || sportObj.medList.length == 0){
+		return;
+	}
+	
+	$('BODY DIV.tbb B').append('<a id="BSMedListLink" href="javascript:void(0);">Bettor Med List</a>');
+	$('#BSMedListLink').click(function(){
+		showMediators(theSport,this);
+	});
+};
+
+function showMediators(sportObj,link){
+	var offset = $(link).offset();
+	$('#bsFieldset').css({top:offset.top,left:offset.left}).show();
+	$('#bsFieldset LEGEND SPAN').html('Bettor Med List');
+	$('#bsFieldset DIV.main').html('');
+	for(var i=0;i<sportObj.medList.length;i++){
+		if(sportObj.medList[i].id){
+			$('#bsFieldset DIV.main').append('<span font-weight:bold;">' + sportObj.medList[i].name + '</span> ( <a href="http://forums.d2jsp.org/user.php?i=' + sportObj.medList[i].id + '" target="_blank">href="http://forums.d2jsp.org/user.php?i=' + sportObj.medList[i].id + '</a> )');
+		}else{
+			$('#bsFieldset DIV.main').append('<span font-weight:bold;">' + sportObj.medList[i].name + '</span>');
+		}
 	}
 };
 
@@ -177,6 +237,7 @@ function parsePage(){
 		showStatus(names,nameHolders);
 	}
 	showPreferencesLink();
+	showMedList();
 };
 
 function gatherSport(sequence){
@@ -186,10 +247,10 @@ function gatherSport(sequence){
 		GM_setValue('BSListInfo',JSON.stringify(LIST));
 		
 		parsePage();
-		//window.setTimeout(function() { parsePage(); },0);
 		return;
 	}
 	LIST.sports[sequence].names = {};
+	LIST.sports[sequence].medList = [];
 	
 	GM_xmlhttpRequest({
 		method:'GET',
@@ -222,9 +283,15 @@ function parseNames(sequence,responseText){
 				var temp2 = temp.split(/\s+\/\//);
 				//console.log('Name: ' + temp2[0].replace(/\/\//g,'').trim() + ' with number: ' + temp2[1].trim());
 				LIST.sports[sequence].names[temp2[0].replace(/\/\//g,'').trim().toUpperCase()] = {status:userStatus,id:temp2[1].trim()};
+				if(userStatus == 'Mediator'){
+					LIST.sports[sequence].medList.push({name: temp2[0].replace(/\/\//g,'').trim(), id: temp2[1].trim()});
+				}
 			}else{
 				//console.log('Name: ' + temp.trim() + ' length: ' + temp.trim().length);
 				LIST.sports[sequence].names[temp.trim().toUpperCase()] = {status:userStatus};
+				if(userStatus == 'Mediator'){
+					LIST.sports[sequence].medList.push({name: temp.trim()});
+				}
 			}
 		}else{
 			//console.log('seporator');
@@ -260,7 +327,6 @@ function retrieveCache(){//return false;
 	
 	LIST = JSON.parse(GM_getValue('BSListInfo'));
 	parsePage();
-	//window.setTimeout(function(){ parsePage(); },0);
 	return true;
 };
 
