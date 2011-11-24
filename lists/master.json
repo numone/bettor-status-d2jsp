@@ -9,7 +9,8 @@
 				{"name": "SimCity","link": "http://forums.d2jsp.org/user.php?i=387060"},
 				{"name": "TJZRoCKeR","link": "http://forums.d2jsp.org/user.php?i=639511"}
 			],
-			"namesURL": "http://bettor-status-d2jsp.googlecode.com/svn/lists/test.txt"
+			"namesURL": "http://bettor-status-d2jsp.googlecode.com/svn/lists/test.txt",
+			"medForumIDs":[201,202,204]
 		},
 		{
 			"list":"http://www.google.com",
@@ -17,7 +18,8 @@
 			"listRunner":[
 				{"name":"cratic","link":"http://forums.d2jsp.org/user.php?i=23523"}
 			],
-			"namesURL": "http://bettor-status-d2jsp.googlecode.com/svn/lists/test2.txt"
+			"namesURL": "http://bettor-status-d2jsp.googlecode.com/svn/lists/test2.txt",
+			"medForumIDs":[203]
 		}
 	],
 	"statusInfo":{
@@ -27,6 +29,6 @@
 		"Welcher Paid Back":{"color":"#00FF33","rank":7},
 		"Welcher":{"color":"red","rank":8},
 		"BlackList":{"color":"red","rank":9},
-		"unknown":{"color":"gray","rank":0}
+		"Unknown":{"color":"gray","rank":0}
 	}
 }
