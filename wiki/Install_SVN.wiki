@@ -1,29 +1,20 @@
-1) install Tortise SVN (I think requires reboot):
-http://tortoisesvn.net/downloads.html
-
-2) Go to the folder on your computer where you want to keep all this bettor status junk. make a new folder called "bettor status" or whatever you want
-
-3) right click the folder, there should be some cool new options you've never seen before.
-3a) click on "SVN Checkout..."
-
-4) a dialog box will appear. 
-4a) url of repository is: https://bettor-status-d2jsp.googlecode.com/svn
-4b) leave everything else alone and hit ok
-
-5) you will be prompted for a username and password.
-5a) Your username is the email address you gave me (the gmail one)
-5b) Your password can be found here: https://code.google.com/hosting/settings
-
-6) Hopefully that all worked and some files and folders are being added.
-
-7) From the folder you just checked out go to the lists folder. In there you can create a new text file (right click -> new -> text document)
-7a) call it whatever you want for now (just want to make sure you're figuring things out)
-7b) you can open it and put whatever you want inside of it
-
-8) when you are done having fun go back to the main folder you checked out, right click, click on "svn commit"
-8a) put something in the top box, in the bottom box make sure your new text file is checked to commit and hit ok
-
-9) you can check to see what commits i've made to files by right clicking the checked out folder, going to tortise svn -> show log
-9a) it will show you all the commits made to the branch. if you click on a specific  revision it shows you the file(s) changed. If you double click a file it will show you the change differences.
+  # install Tortise SVN (I think requires reboot): http://tortoisesvn.net/downloads.html
+  # Go to the folder on your computer where you want to keep all this bettor status junk. make a new folder called "bettor status" or whatever you want
+  # right click the folder, there should be some cool new options you've never seen before.
+    # click on "SVN Checkout..."
+    # a dialog box will appear. 
+    # url of repository is: https://bettor-status-d2jsp.googlecode.com/svn
+    # leave everything else alone and hit ok
+  # you will be prompted for a username and password.
+    # Your username is the email address you gave me (the gmail one)
+    # Your password can be found here: https://code.google.com/hosting/settings
+  # Hopefully that all worked and some files and folders are being added.
+  # From the folder you just checked out go to the lists folder. In there you can create a new text file (right click -> new -> text document)
+    # call it whatever you want for now (just want to make sure you're figuring things out)
+    # you can open it and put whatever you want inside of it
+  # when you are done having fun go back to the main folder you checked out, right click, click on "svn commit"
+    # put something in the top box, in the bottom box make sure your new text file is checked to commit and hit ok
+  # you can check to see what commits i've made to files by right clicking the checked out folder, going to tortise svn -> show log
+    # it will show you all the commits made to the branch. if you click on a specific  revision it shows you the file(s) changed. If you double click a file it will show you the change differences.
 
 This will be our new main way of updating the list. It will keep track of who changes what and when and wont allow for overrides.
