@@ -178,7 +178,7 @@ function showMedList(){
 		}
 	}
 	
-	if(!theSport || sportObj.medList.length == 0){
+	if(!theSport || theSport.medList.length == 0){
 		return;
 	}
 	
@@ -195,9 +195,9 @@ function showMediators(sportObj,link){
 	$('#bsFieldset DIV.main').html('');
 	for(var i=0;i<sportObj.medList.length;i++){
 		if(sportObj.medList[i].id){
-			$('#bsFieldset DIV.main').append('<span font-weight:bold;">' + sportObj.medList[i].name + '</span> ( <a href="http://forums.d2jsp.org/user.php?i=' + sportObj.medList[i].id + '" target="_blank">href="http://forums.d2jsp.org/user.php?i=' + sportObj.medList[i].id + '</a> )');
+			$('#bsFieldset DIV.main').append('<span style="font-weight:bold;">' + sportObj.medList[i].name + '</span> ( <a href="http://forums.d2jsp.org/user.php?i=' + sportObj.medList[i].id + '" target="_blank">http://forums.d2jsp.org/user.php?i=' + sportObj.medList[i].id + '</a> )<br />');
 		}else{
-			$('#bsFieldset DIV.main').append('<span font-weight:bold;">' + sportObj.medList[i].name + '</span>');
+			$('#bsFieldset DIV.main').append('<span style="font-weight:bold;">' + sportObj.medList[i].name + '</span><br />');
 		}
 	}
 };
@@ -343,7 +343,11 @@ function retrieveHeader(){
 			gatherSport(0);
 		},
 		onerror:function(err){
-			showErrorMsg('Error retrieving list header');
+			showErrorMsg('Error retrieving list header. Will used cached lists if available.');
+			if(GM_getValue('BSListInfo')){// we have old lists, we will use that for now
+				LIST = JSON.parse(GM_getValue('BSListInfo'));
+				parsePage();
+			}
 		}
 	});
 };
