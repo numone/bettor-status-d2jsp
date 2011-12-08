@@ -141,6 +141,7 @@ function showMultiSportsInfo(resultsArray,link){
 	var offset = $(link).offset();
 	$('#bsFieldset').css({top:offset.top,left:offset.left}).show();
 	$('#bsFieldset LEGEND SPAN').html('Bettor Status Info');
+	$('#bsFieldset DIV.main').html('');
 	for(var i=0;i<resultsArray.length;i++){
 		var t = resultsArray[i];
 		$('#bsFieldset DIV.main').append('<div><a title="links to ' + t.sport + ' list" href="' + LIST.sports[t.id].list + '" target="_blank">' + t.sport + '</a>: ' + colorTheStatus(t.status) + ' <span style="font-size:7pt;">Ran By: </span></div>');
@@ -182,7 +183,7 @@ function showMedList(){
 		return;
 	}
 	
-	$('BODY DIV.tbb B').append('<a id="BSMedListLink" href="javascript:void(0);">Bettor Med List</a>');
+	$('BODY DIV.tbb DIV.links B').append('<a id="BSMedListLink" href="javascript:void(0);">Bettor Med List</a>');
 	$('#BSMedListLink').click(function(){
 		showMediators(theSport,this);
 	});

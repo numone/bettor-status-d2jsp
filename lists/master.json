@@ -13,12 +13,12 @@
 			"medForumIDs":[201,202,204]
 		},
 		{
-			"list":"http://www.google.com",
+			"list":"http://i3.photobucket.com/albums/y62/Cratic/List.jpg",
 			"title":"Hockey",
 			"listRunner":[
-				{"name":"cratic","link":"http://forums.d2jsp.org/user.php?i=23523"}
+				{"name":"cratic","link":"http://forums.d2jsp.org/user.php?i=280200"}
 			],
-			"namesURL": "http://bettor-status-d2jsp.googlecode.com/svn/lists/test2.txt",
+			"namesURL": "http://bettor-status-d2jsp.googlecode.com/svn/lists/Hockey.txt",
 			"medForumIDs":[203]
 		}
 	],
