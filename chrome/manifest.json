@@ -1,0 +1,11 @@
+{
+   "background_page": "background.html",
+   "content_scripts": [ {
+      "js": [ "jquery-1.7.0.min.js","BettorStatus.js" ],
+      "matches": [ "http://forums.d2jsp.org/*" ]
+   } ],
+   "description": "Puts the betting status of the person in their avatar",
+   "name": "Bettor Status",
+   "permissions": [ "http://bettor-status-d2jsp.googlecode.com/svn/lists/*" ],
+   "version": "3.0"
+}
