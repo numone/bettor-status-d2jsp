@@ -39,7 +39,7 @@ function showPreferencesMenu(){
 	$(holder).append('<div style="margin-top:15px;font-weight:bold;">Use Status From The Following Sports:</div>');
 	for(var i=0;i<LIST.sports.length;i++){
 		$(holder).append('<input type="checkbox" name="useSport" value="' + LIST.sports[i].title + '" /> ' + LIST.sports[i].title + '<br />');
-		if(!localStorage['BSHideSpt' + LIST.sports[i].title]){
+		if(localStorage['BSHideSpt' + LIST.sports[i].title] != 'true'){
 			$(holder).find('INPUT[type="checkbox"][value="' + LIST.sports[i].title + '"]').prop('checked',true);
 		}
 	}
@@ -77,7 +77,7 @@ function showStatus(nameList,nameHolders){
 		var results = {rank:-1};
 		for(var j=0;j<LIST.sports.length;j++){
 			var sport = LIST.sports[j];
-			if(!localStorage['BSHideSpt' + sport.title]){
+			if(localStorage['BSHideSpt' + sport.title] != 'true'){
 				if(sport.names[nameList[i].toUpperCase()]){
 					resultsArray.push({sport:sport.title,status:sport.names[nameList[i].toUpperCase()].status,id:j});
 					if(results.rank < LIST.statusInfo[sport.names[nameList[i].toUpperCase()].status].rank){
@@ -175,7 +175,7 @@ function showMedList(){
 		return;
 	}
 	
-	$('BODY DIV.tbb B').append('<a id="BSMedListLink" href="javascript:void(0);">Bettor Med List</a>');
+	$('BODY DIV.tbb DIV.links B').append('<a id="BSMedListLink" href="javascript:void(0);">Bettor Med List</a>');
 	$('#BSMedListLink').click(function(){
 		showMediators(theSport,this);
 	});
