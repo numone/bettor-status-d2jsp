@@ -2,7 +2,6 @@
 // @name          Bettor Status
 // @namespace     d2jsp
 // @description   Puts the betting status of the person in their avatar
-// @version       3.00
 // @include       http://forums.d2jsp.org/*
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js
 // ==/UserScript==
@@ -10,6 +9,7 @@
 ** COPYRIGHT NUMONE@D2jsp.org ******
 **************************************/
 //globals
+var VERSION = 3.00;
 var CACHE_TIME = 1000 * 60 * 60; //1000 to convert to seconds, 60 to convert to min, 60 for 60 minutes
 var HEADER_URL = 'http://bettor-status-d2jsp.googlecode.com/svn/lists/master.json';
 var PAGE_TYPE = window.location.href.match(/\/topic\.php/) ? 'thread'
@@ -341,6 +341,9 @@ function retrieveHeader(){
 	    },
 		onload:function(response){
 			LIST = JSON.parse(response.responseText);
+			if(list.version != VERSION){
+				showErrorMsg('Your bettor status script is out of date, <a href="http://userscripts.org/scripts/show/50720" target="_blank">Click Here</a> to upgrade!');
+			}
 			gatherSport(0);
 		},
 		onerror:function(err){
