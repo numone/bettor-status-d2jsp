@@ -207,7 +207,7 @@ function parsePage(){
 	var names = [],nameHolders = [];
 	switch(PAGE_TYPE){
 		case 'thread':
-			$('BODY DIV.tbb FORM[name="REPLIER"] DL DT A[href^="user.php"]').each(function(){
+			$('BODY DIV.tbb FORM[name="REPLIER"] DL').has('TABLE.ftb').find('DT A[href^="user.php"]').each(function(){
 				names.push($(this).text());
 			});
 			$('BODY DIV.tbb FORM[name="REPLIER"] DL DD TABLE.ftb TBODY TR TD.bc1').each(function(){
