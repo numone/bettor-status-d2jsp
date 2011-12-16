@@ -341,7 +341,7 @@ function retrieveHeader(){
 	    },
 		onload:function(response){
 			LIST = JSON.parse(response.responseText);
-			if(list.version != VERSION){
+			if(LIST.version != VERSION){
 				showErrorMsg('Your bettor status script is out of date, <a href="http://userscripts.org/scripts/show/50720" target="_blank">Click Here</a> to upgrade!');
 			}
 			gatherSport(0);
