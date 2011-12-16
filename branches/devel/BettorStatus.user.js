@@ -276,7 +276,7 @@ function parseNames(sequence,responseText){
 	var split = responseText.split('#EL##SL#');
 	for(var i=0;i<split.length;i++){
 		var temp = split[i];
-		if(temp.match(/###[a-zA-Z0-9]+###/)){
+		if(temp.match(/###[a-zA-Z0-9\s]+###/)){
 			//console.log('Title: ' + temp.replace(/#/g,'').trim());
 			userStatus = temp.replace(/#/g,'').trim();
 		}else if(temp.length > 0){
