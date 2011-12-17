@@ -1,7 +1,15 @@
+// ==UserScript==
+// @name          Bettor Status
+// @namespace     d2jsp
+// @description   Puts the betting status of the person in their avatar
+// @include       http://forums.d2jsp.org/*
+// @require       https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js
+// ==/UserScript==
 /**************************************
 ** COPYRIGHT NUMONE@D2jsp.org ******
 **************************************/
 //globals
+var VERSION = 3.00;
 var CACHE_TIME = 1000 * 60 * 60; //1000 to convert to seconds, 60 to convert to min, 60 for 60 minutes
 var HEADER_URL = 'http://bettor-status-d2jsp.googlecode.com/svn/lists/master.json';
 var PAGE_TYPE = window.location.href.match(/\/topic\.php/) ? 'thread'
@@ -30,35 +38,35 @@ function showPreferencesMenu(){
 	
 	// display type
 	$(holder).append('<span style="font-weight:bold;">Status Display:</span> <input type="radio" name="dispType" value="rolled" />Combined <input type="radio" name="dispType" value="seporated" />Seporated');
-	$(holder).find('INPUT[name="dispType"][value="' + (localStorage['BSDispType'] || 'rolled') + '"]').prop('checked',true);
+	$(holder).find('INPUT[name="dispType"][value="' + GM_getValue('BSDispType','rolled') + '"]').prop('checked',true);
 	$(holder).find('INPUT[name="dispType"]').click(function(){
-		localStorage['BSDispType'] = $(this).prop('value');
+		GM_setValue('BSDispType',$(this).prop('value'));
 	});
 	
 	// use list checkboxes
 	$(holder).append('<div style="margin-top:15px;font-weight:bold;">Use Status From The Following Sports:</div>');
 	for(var i=0;i<LIST.sports.length;i++){
 		$(holder).append('<input type="checkbox" name="useSport" value="' + LIST.sports[i].title + '" /> ' + LIST.sports[i].title + '<br />');
-		if(localStorage['BSHideSpt' + LIST.sports[i].title] != 'true'){
+		if(!(GM_getValue('BSHideSpt' + LIST.sports[i].title,false))){
 			$(holder).find('INPUT[type="checkbox"][value="' + LIST.sports[i].title + '"]').prop('checked',true);
 		}
 	}
 	$(holder).find('INPUT[type="checkbox"][name="useSport"]').click(function(){
 		if($(this).prop('checked')){
-			localStorage['BSHideSpt' + $(this).prop('value')] = false;
+			GM_setValue('BSHideSpt' + $(this).prop('value'),false);
 		}else{
-			localStorage['BSHideSpt' + $(this).prop('value')] = true;
+			GM_setValue('BSHideSpt' + $(this).prop('value'),true);
 		}
 	});
 	
 	// names last updated
-	var timeAgo = Math.round(((new Date().getTime()) - (localStorage['BSExpireTime'] - CACHE_TIME)) / 60000);
-	if(localStorage['BSExpireTime'] == '0'){
+	var timeAgo = Math.round(((new Date().getTime()) - (GM_getValue('BSExpireTime') - CACHE_TIME)) / 60000);
+	if(GM_getValue('BSExpireTime') == '0'){
 		$(holder).append('<br /><br /><br /><span id="Bettor_Status_refreshSpan">Names List will reload when the page is refreshed (F5)</span>');
 	}else{
 		$(holder).append('<br /><br /><br /><span id="Bettor_Status_refreshSpan"><span style="font-style:italic;">Names List Last Updated ' + timeAgo + ' minutes ago.</span> <a href="#" id="Bettor_Status_refresh">Reload Now</a></span>');
 		$('#Bettor_Status_refresh').click(function(){
-			localStorage['BSExpireTime']  = '0';
+			GM_setValue('BSExpireTime','0');
 			$('#Bettor_Status_refreshSpan').html('Will now reload when the page is refreshed (F5)');
 		});
 	}
@@ -77,7 +85,7 @@ function showStatus(nameList,nameHolders){
 		var results = {rank:-1};
 		for(var j=0;j<LIST.sports.length;j++){
 			var sport = LIST.sports[j];
-			if(localStorage['BSHideSpt' + sport.title] != 'true'){
+			if(!(GM_getValue('BSHideSpt' + sport.title,false))){
 				if(sport.names[nameList[i].toUpperCase()]){
 					resultsArray.push({sport:sport.title,status:sport.names[nameList[i].toUpperCase()].status,id:j});
 					if(results.rank < LIST.statusInfo[sport.names[nameList[i].toUpperCase()].status].rank){
@@ -92,7 +100,7 @@ function showStatus(nameList,nameHolders){
 			}
 		}
 		if(results.rank > -1){
-			if(!localStorage['BSDispType'] || localStorage['BSDispType'] == 'rolled'){
+			if(GM_getValue('BSDispType','rolled') == 'rolled'){
 				function createLink(){
 					$(nameHolders[i]).append('<div class="sportStatusHolder"><a href="javascript:void(0);">Bettor Status</a>: ' + colorTheStatus(results.status) + '</div>');
 					var resArray = resultsArray;
@@ -103,15 +111,15 @@ function showStatus(nameList,nameHolders){
 				createLink();
 			}else{
 				for(var j=0;j<resultsArray.length;j++){
-					function createLinks(idx){
-						var appendStr = '<div class="sportStatusHolder"><a href="javascript:void(0);">' + resultsArray[idx].sport + '</a>: ' + colorTheStatus(resultsArray[idx].status) + '</div>';
+					function createLink(){
+						var appendStr = '<div class="sportStatusHolder"><a href="javascript:void(0);">' + resultsArray[j].sport + '</a>: ' + colorTheStatus(resultsArray[j].status) + '</div>';
 						$(nameHolders[i]).append(appendStr);
-						var theID = resultsArray[idx].id;
+						var theID = resultsArray[j].id;
 						$(nameHolders[i]).find('DIV.sportStatusHolder:last A').click(function(){
 							showSingleSportInfo(theID,this);
 						});
 					}
-					createLinks(j);
+					createLink();
 				}
 			}
 		}
@@ -202,11 +210,9 @@ function parsePage(){
 			$('BODY DIV.tbb FORM[name="REPLIER"] DL').has('TABLE.ftb').find('DT A[href^="user.php"]').each(function(){
 				names.push($(this).text());
 			});
-			console.log(names);
 			$('BODY DIV.tbb FORM[name="REPLIER"] DL DD TABLE.ftb TBODY TR TD.bc1').each(function(){
 				nameHolders.push(this);
 			});
-			console.log(nameHolders.length);
 			break;
 		case 'pm':
 			$('BODY FORM[name="a"] TABLE:eq(0) TR TD DL DT A[href^="user.php"]').each(function(){
@@ -238,8 +244,8 @@ function parsePage(){
 function gatherSport(sequence){
 	if(sequence + 1 > LIST.sports.length){
 		//save to cache
-		localStorage['BSExpireTime'] = (new Date().getTime() + CACHE_TIME) + '';
-		localStorage['BSListInfo'] = JSON.stringify(LIST);
+		GM_setValue('BSExpireTime',(new Date().getTime() + CACHE_TIME) + '');
+		GM_setValue('BSListInfo',JSON.stringify(LIST));
 		
 		parsePage();
 		return;
@@ -247,14 +253,20 @@ function gatherSport(sequence){
 	LIST.sports[sequence].names = {};
 	LIST.sports[sequence].medList = [];
 	
-	chrome.extension.sendRequest({url:LIST.sports[sequence].namesURL + '?' + (new Date().getTime())},function(response){
-		if(!response){
+	GM_xmlhttpRequest({
+		method:'GET',
+		url:LIST.sports[sequence].namesURL + '?' + (new Date().getTime()),
+		headers: {
+	        'User-agent': 'Mozilla/4.0 (compatible) Greasemonkey',
+	        'Accept': 'application/atom+xml,application/xml,text/xml',
+	    },
+		onload:function(response){
+			parseNames(sequence,response.responseText);
+			gatherSport(sequence + 1);
+		},
+		onerror:function(err){
 			showErrorMsg('Error retrieving list ' + LIST.sports[sequence].title);
-			return;
 		}
-		
-		parseNames(sequence,response);
-		gatherSport(sequence + 1);
 	});
 };
 
@@ -305,7 +317,7 @@ function showErrorMsg(msg){
 };
 
 function retrieveCache(){//return false;
-	var expTime = localStorage['BSExpireTime'];
+	var expTime = GM_getValue('BSExpireTime');
 	if(!expTime){//first load?
 		return false;
 	}
@@ -314,23 +326,33 @@ function retrieveCache(){//return false;
 		return false;
 	}
 	
-	LIST = JSON.parse(localStorage['BSListInfo']);
+	LIST = JSON.parse(GM_getValue('BSListInfo'));
 	parsePage();
 	return true;
 };
 
 function retrieveHeader(){
-	chrome.extension.sendRequest({url:HEADER_URL + '?' + (new Date().getTime())},function(response){
-		if(!response){
+	GM_xmlhttpRequest({
+		method:'GET',
+		url:HEADER_URL + '?' + (new Date().getTime()),
+		headers: {
+	        'User-agent': 'Mozilla/4.0 (compatible) Greasemonkey',
+	        'Accept': 'application/atom+xml,application/xml,text/xml',
+	    },
+		onload:function(response){
+			LIST = JSON.parse(response.responseText);
+			if(LIST.version != VERSION){
+				showErrorMsg('Your bettor status script is out of date, <a href="http://userscripts.org/scripts/show/50720" target="_blank">Click Here</a> to upgrade!');
+			}
+			gatherSport(0);
+		},
+		onerror:function(err){
 			showErrorMsg('Error retrieving list header. Will used cached lists if available.');
-			if(localStorage['BSListInfo']){// we have old lists, we will use that for now
-				LIST = JSON.parse(localStorage['BSListInfo']);
+			if(GM_getValue('BSListInfo')){// we have old lists, we will use that for now
+				LIST = JSON.parse(GM_getValue('BSListInfo'));
 				parsePage();
 			}
-			return;
 		}
-		LIST = JSON.parse(response);
-		gatherSport(0);
 	});
 };
 

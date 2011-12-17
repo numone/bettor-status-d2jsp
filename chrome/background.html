@@ -4,7 +4,7 @@
 	</head>
 	<body>
 		<script>
-			function onRequest(data,sender,callback) {
+			function onRequest(request,sender,callback) {
 				var xhr = new XMLHttpRequest();
 				xhr.onreadystatechange = function(data) {
 					if (xhr.readyState == 4) {
@@ -16,9 +16,7 @@
 						}
 					}
 				}
-
-				var url = 'http://d2jsp-bettor-list.angelfire.com/index.html';
-				xhr.open('GET', url, true);
+				xhr.open('GET', request.url, true);
 				xhr.send();
 			};
 
