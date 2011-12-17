@@ -9,12 +9,13 @@
 ** COPYRIGHT NUMONE@D2jsp.org ******
 **************************************/
 //globals
-var VERSION = 3.00;
+var VERSION = 3.01;
 var CACHE_TIME = 1000 * 60 * 60; //1000 to convert to seconds, 60 to convert to min, 60 for 60 minutes
 var HEADER_URL = 'http://bettor-status-d2jsp.googlecode.com/svn/lists/master.json';
 var PAGE_TYPE = window.location.href.match(/\/topic\.php/) ? 'thread'
 	: window.location.href.match(/\/pm\.php\?c\=3/) ? 'pm'
 	: window.location.href.match(/\/user\.php/) ? 'user'
+	: window.location.href.match(/\/settings\.php/) ? 'settings'
 	: 'UNKNOWN';
 var LIST = {}; // holds the list of everything
 
@@ -27,7 +28,7 @@ $('#bsFieldset').hide();
 function showPreferencesMenu(){
 	$('BODY').css({'overflow':'hidden'});
 	$('BODY').append('<div id="Bettor_Status_bkgrnd" style="position:absolute;top:0%;left:0%;width:100%;height:100%;background-color:black;z-index:1001;-moz-opacity:0.6;opacity:.60;filter:alpha(opacity=60)">' +
-		'</div><div id="Bettor_Status_forgrnd" style="position:absolute;top:25%;left:25%;width:50%;height:50%;padding:16px;border:5px solid #8FBEFF;background-color:#E4EBFF;z-index:1002;overflow:auto;"></div>');
+		'</div><div id="Bettor_Status_forgrnd" style="position:absolute;top:25%;left:25%;width:50%;height:50%;padding:16px;border:5px solid #8FBEFF;background-color:#E4EBFF;z-index:1002;overflow:auto;color:black;"></div>');
 	var holder = $('#Bettor_Status_forgrnd');
 	$(holder).html('<div style="font-size:12pt;"><span style="font-weight:bold;text-decoration:underline;">Bettor Status Settings:</span><span id="Bettor_Status_close" style="float:right;cursor:pointer;color:blue;text-decoration:underline;">Close</span></div>');
 	$('#Bettor_Status_close').click(function(){
@@ -37,7 +38,7 @@ function showPreferencesMenu(){
 	});
 	
 	// display type
-	$(holder).append('<span style="font-weight:bold;">Status Display:</span> <input type="radio" name="dispType" value="rolled" />Combined <input type="radio" name="dispType" value="seporated" />Seporated');
+	$(holder).append('<span style="font-weight:bold;">Status Display:</span> <input type="radio" name="dispType" value="rolled" />Combined <input type="radio" name="dispType" value="seporated" />Separated');
 	$(holder).find('INPUT[name="dispType"][value="' + GM_getValue('BSDispType','rolled') + '"]').prop('checked',true);
 	$(holder).find('INPUT[name="dispType"]').click(function(){
 		GM_setValue('BSDispType',$(this).prop('value'));
@@ -73,7 +74,8 @@ function showPreferencesMenu(){
 };
 
 function showPreferencesLink(){
-	$('BODY DIV.bar DIV.barR').append('<a href="#" id="Bettor_Status_pref">Bettor Status Settings</a>');
+	//$('BODY DIV.bar DIV.barR').append('<a href="#" id="Bettor_Status_pref">Bettor Status Settings</a>');
+	$('BODY TABLE DL DD UL.mL').append('<li><a href="#" id="Bettor_Status_pref">Bettor Status Settings</a></li>');
 	$('#Bettor_Status_pref').click(function(){
 		showPreferencesMenu();
 	});
@@ -161,10 +163,6 @@ function colorTheStatus(status){
 };
 
 function showMedList(){
-	if(!PAGE_TYPE == 'thread'){
-		return;
-	}
-	
 	var forumID = parseInt(window.location.href.split('&f=')[1]);
 	var theSport = false;
 	for(var i=0;i<LIST.sports.length;i++){
@@ -232,13 +230,29 @@ function parsePage(){
 				nameHolders.push(list);
 			});
 			break;
+		case 'settings':
+			showPreferencesLink();
+			break;
 	}
 
 	if(names.length > 0 && nameHolders.length > 0){
 		showStatus(names,nameHolders);
 	}
-	showPreferencesLink();
-	showMedList();
+	
+	if(PAGE_TYPE == 'thread'){
+		showMedList();
+	}
+	
+	showFlushLink();
+};
+
+function showFlushLink(){
+	var timeAgo = Math.round(((new Date().getTime()) - (localStorage['BSExpireTime'] - CACHE_TIME)) / 60000);
+	$('BODY DIV.crt.links').append(' | Bettor Status version: ' + VERSION.toFixed(2) + ', <span id="BSBottomSpan">cached for ' + timeAgo + ' minutes <a href="javascript:void(0);" id="BSBottomFlush">flush</a></span>');
+	$('#BSBottomFlush').click(function(){
+		GM_setValue('BSExpireTime','0');
+		$('#BSBottomSpan').html('Will now reload when the page is refreshed (F5)');
+	});
 };
 
 function gatherSport(sequence){
