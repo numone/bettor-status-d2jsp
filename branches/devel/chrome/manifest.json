@@ -7,5 +7,5 @@
    "description": "Puts the betting status of the person in their avatar",
    "name": "Bettor Status",
    "permissions": [ "http://bettor-status-d2jsp.googlecode.com/svn/lists/*" ],
-   "version": "3.0"
+   "version": "3.1"
 }
