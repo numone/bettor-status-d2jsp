@@ -113,7 +113,7 @@ function showStatus(nameList,nameHolders){
 				createLink();
 			}else{
 				for(var j=0;j<resultsArray.length;j++){
-					function createLink(){
+					function createLinkAll(){
 						var appendStr = '<div class="sportStatusHolder"><a href="javascript:void(0);">' + resultsArray[j].sport + '</a>: ' + colorTheStatus(resultsArray[j].status) + '</div>';
 						$(nameHolders[i]).append(appendStr);
 						var theID = resultsArray[j].id;
@@ -121,7 +121,7 @@ function showStatus(nameList,nameHolders){
 							showSingleSportInfo(theID,this);
 						});
 					}
-					createLink();
+					createLinkAll();
 				}
 			}
 		}
