@@ -8,7 +8,6 @@ Max(Cc) //227147
 numone //172915
 ppkpkppk //41942
 Randolph //313394
-R2C2 //170442
 RshahNyC //373774
 Rshahnyc93 //261208
 SimCity //387060
@@ -40,13 +39,16 @@ Lil_Rowdy
 Mick8666
 Msteph
 SaF7
+R2C2
 Stealthy_Llama
 TDizzle
 TJZRoCKeR //639511
 tuckerblair89
+Valorcide
 VF_Falcon
 Vickissick07
 ZachT927
+Zoboomafoo
 
 ###Active###
 AkiNoS
@@ -80,6 +82,7 @@ HEIDTB
 Imapkeryo
 inny11
 jackzors
+Jarome
 JoeKer
 JvT51091
 Kadger
@@ -98,6 +101,7 @@ MotorCityScrubs
 MustangMan
 Odds
 PKChu
+PhewPhew
 Polygraph
 Portmouth
 Proint
@@ -107,6 +111,7 @@ Salisa
 sentries
 Superfly_B
 Suhduelerz
+sstrunks52005
 :Thanatos:
 TheBlackHole
 Tomspeople
@@ -284,7 +289,6 @@ EViLDeeDz
 Export7
 EwokHellKite
 FatalXRyan
-Fatmofo
 FineBeats
 Flowers
 ForUBoss
