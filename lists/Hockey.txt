@@ -5,7 +5,6 @@ blue_fire //362503
 Cratic  //280200
 Crispers  //542172
 LooseyGoosey11 //518812
-Pens //391600
 tomspeople  //198576
 
 ###Trusted###
@@ -50,6 +49,7 @@ KrWWW
 LilCanadian
 max09
 meatstick101
+MNhockey
 necropheliac
 NooblarNobes
 Olfongodar
@@ -65,6 +65,7 @@ skinny7
 slickjay
 Stealth
 Swash
+system_slave
 The_Don
 tim226
 Toshster
