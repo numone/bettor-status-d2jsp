@@ -1,8 +1,6 @@
 ###Mediator###
-Baloid //387477
 BB_MelloYello //502380
 blue_fire //362503
-Cratic  //280200
 Crispers  //542172
 LooseyGoosey11 //518812
 tomspeople  //198576
@@ -10,6 +8,8 @@ tomspeople  //198576
 ###Trusted###
 Nimnim2500
 Tear
+Baloid //387477
+Cratic  //280200
 
 ###Active###
 badasses
