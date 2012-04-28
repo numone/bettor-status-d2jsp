@@ -17,7 +17,6 @@ SimCity //387060
 asdzx2
 babolat
 Benny21
-BrandonL012590
 Bryce722
 bygdubdiesel
 ChiefBuzzin
@@ -25,19 +24,16 @@ Danny1024
 Deagol
 DR1
 EwokHellKite
-Fgs
 Fluminense
 Frazzles
 Frozen
 good_Duels
 iinfuZe
-Individuality
 Inudan
 JeanR
 Koldhearted
 LegendaryIcicle //369280
 Lil_Rowdy
-Mick8666
 Msteph
 SaF7
 R2C2
@@ -53,29 +49,19 @@ Zoboomafoo
 
 ###Active###
 AkiNoS
-Anderdale
 austinhb
-Baloid
 bena2005
-BulletAcross
 cambovenzi
-CamelToe
 clawcool
 cratic
 Crispers
-cruelwords
-Da_JuGgErNaUt_81
 Detroitt
-dng-andre
 DOM_innate
 draino
-Drifty
 drxscillator
-dues_ex69
 fuzzy159
 Gangbang
 Gein
-Gonch
 GSY
 harasmussen
 Hako
@@ -92,20 +78,14 @@ kazium
 kevindyd77
 Labeq9947
 lifehouse
-LINvasion
-Lyricist
 macfinn
 Magikod
 Mangina
 MisterFurious
-Mod_nr
 MotorCityScrubs
 MustangMan
 Odds
-PKChu
 PhewPhew
-Polygraph
-Portmouth
 Proint
 RiCCAY
 rita313
@@ -120,15 +100,12 @@ Tomspeople
 TritonV8
 txO4
 Valorcide
-vietek
-Warning.
 Wine
 Wydz
 xnozx.
-xTurtlex
 YoYoYoYoMan
 Zero_Kewl
-Ztruk8
+
 
 ###Welcher Paid Back###
 AAAb182
@@ -156,6 +133,7 @@ JackMeHoff
 Ject
 JeremyLepage
 John777
+LastWeek
 KingEdgar
 MadMartigan
 Metamorphisis
@@ -225,6 +203,7 @@ BrawlBro
 Brett_Favre
 Bronco30
 Bruteforce750
+BulletAcross
 CallofCombat
 CannabisTrader
 Carnival
@@ -338,7 +317,6 @@ KimboSlice74
 Kinesis
 KMFDM
 KnicksRule69
-LastWeek
 LikeABoss
 Lifesaver101
 Lilfatkid01
