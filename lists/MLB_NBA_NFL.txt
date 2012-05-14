@@ -1,5 +1,6 @@
 ###Mediator###
 adrew35 //408902
+Frozen //236503
 GangStarr //264122
 Gfgrice //373854
 Hokies //356284
@@ -10,7 +11,7 @@ ppkpkppk //41942
 Randolph //313394
 RshahNyC //373774
 Rshahnyc93 //261208
-SimCity //387060
+
 
 ###Trusted###
 18_1
@@ -37,6 +38,7 @@ Lil_Rowdy
 Msteph
 SaF7
 R2C2
+SimCity //387060
 Stealthy_Llama
 TDizzle
 TJZRoCKeR //639511
@@ -52,6 +54,7 @@ AkiNoS
 austinhb
 Bandito89
 bena2005
+BoTooH
 cambovenzi
 clawcool
 cratic
@@ -80,7 +83,6 @@ kevindyd77
 Labeq9947
 lifehouse
 macfinn
-Magikod
 Mangina
 MisterFurious
 MotorCityScrubs
@@ -186,6 +188,7 @@ Baatista
 bad69boy
 BadDog940
 Basement
+Barbu
 Bball_8
 BBKush
 Bck
