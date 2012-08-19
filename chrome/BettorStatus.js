@@ -2,7 +2,7 @@
 ** COPYRIGHT NUMONE@D2jsp.org ******
 **************************************/
 //globals
-var VERSION = 3.01;
+var VERSION = 3.02;
 var CACHE_TIME = 1000 * 60 * 60; //1000 to convert to seconds, 60 to convert to min, 60 for 60 minutes
 var HEADER_URL = 'http://bettor-status-d2jsp.googlecode.com/svn/lists/master.json';
 var PAGE_TYPE = window.location.href.match(/\/topic\.php/) ? 'thread'
