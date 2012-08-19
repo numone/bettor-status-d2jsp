@@ -13,7 +13,7 @@ var PAGE_TYPE = window.location.href.match(/\/topic\.php/) ? 'thread'
 var LIST = {}; // holds the list of everything
 
 // universal fieldset
-$('BODY').append('<fieldset style="padding:5px;position:absolute;z-index:100;" id="bsFieldset"><legend><span></span><img style="vertical-align:inherit;margin-left:2px;cursor:pointer;" src="images/x.gif" /></legend><div class="main"></div></fieldset>');
+$('BODY').append('<fieldset style="padding:5px;position:absolute;z-index:100;background-color:#D4E0FF;" id="bsFieldset"><legend style="background-color:#D4E0FF;border:1px solid #B0B0B0;"><span></span><img style="vertical-align:inherit;margin-left:2px;cursor:pointer;" src="images/x.gif" /></legend><div class="main"></div></fieldset>');
 $('#bsFieldset LEGEND IMG').click(function(){$('#bsFieldset').hide();});
 $('#bsFieldset').hide();
 

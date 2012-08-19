@@ -9,7 +9,7 @@
 ** COPYRIGHT NUMONE@D2jsp.org ******
 **************************************/
 //globals
-var VERSION = 3.01;
+var VERSION = 3.02;
 var CACHE_TIME = 1000 * 60 * 60; //1000 to convert to seconds, 60 to convert to min, 60 for 60 minutes
 var HEADER_URL = 'http://bettor-status-d2jsp.googlecode.com/svn/lists/master.json';
 var PAGE_TYPE = window.location.href.match(/\/topic\.php/) ? 'thread'
@@ -20,7 +20,7 @@ var PAGE_TYPE = window.location.href.match(/\/topic\.php/) ? 'thread'
 var LIST = {}; // holds the list of everything
 
 // universal fieldset
-$('BODY').append('<fieldset style="padding:5px;position:absolute;z-index:100;" id="bsFieldset"><legend><span></span><img style="vertical-align:inherit;margin-left:2px;cursor:pointer;" src="images/x.gif" /></legend><div class="main"></div></fieldset>');
+$('BODY').append('<fieldset style="padding:5px;position:absolute;z-index:100;background-color:#D4E0FF;" id="bsFieldset"><legend style="background-color:#D4E0FF;border:1px solid #B0B0B0;"><span></span><img style="vertical-align:inherit;margin-left:2px;cursor:pointer;" src="images/x.gif" /></legend><div class="main"></div></fieldset>');
 $('#bsFieldset LEGEND IMG').click(function(){$('#bsFieldset').hide();});
 $('#bsFieldset').hide();
 
