@@ -8,8 +8,7 @@ judson04 //383783
 Max(Cc) //227147
 numone //172915
 Randolph //313394
-RshahNyC //373774
-jajaja //261208
+
 
 
 ###Trusted###
@@ -38,6 +37,8 @@ Lil_Rowdy
 Maclin
 Msteph
 ppkpkppk //41942
+RshahNyC //373774
+jajaja //261208
 SaF7
 SimCity //387060
 Stealthy_Llama
@@ -73,11 +74,9 @@ GSY
 harasmussen
 Hako
 HEIDTB
-Imapkeryo
 inny11
 jackzors
 Jarome
-JoeKer
 joshd21
 JvT51091
 Kadger
@@ -105,13 +104,11 @@ TheBlackHole
 Tomspeople
 trib747
 TritonV8
-txO4
 Valorcide
 wildevolution
 Wydz
 xnozx.
 YoYoYoYoMan
-Zero_Kewl
 
 
 ###Welcher Paid Back###
@@ -399,6 +396,7 @@ SheWantsRevenge
 ShockioN
 silentest2
 SkM
+sMoKeMe
 snow_boy
 socialD
 Stadium
