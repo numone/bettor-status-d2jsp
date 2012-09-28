@@ -3,13 +3,12 @@ blue_fire //362503
 Cratic  //280200
 LooseyGoosey11 //518812
 tomspeople  //198576
-Crispers  //542172
 jbell886 //108435
 dxlightning //433169
 
 ###Trusted###
 BB_MelloYello //502380
-
+Crispers  //542172
 
 ###Active###
 badasses
@@ -19,6 +18,7 @@ Canuckzzz
 chojo
 chreeeis
 CooLSmuRFeR24
+cruzader
 Deathn0te
 Decaliss3ur
 decopple
