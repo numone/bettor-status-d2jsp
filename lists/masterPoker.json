@@ -1,0 +1,23 @@
+{
+	"version": 1.00,
+	"sports":[
+		{
+			"list":"http://johnyr.net/poker/pokerlist.png",
+			"title":"Poker",
+			"listRunner":[
+				{"name": "Resilience","link": "http://forums.d2jsp.org/user.php?i=235196"}
+			],
+			"namesURL": "http://bettor-status-d2jsp.googlecode.com/svn/lists/poker.txt",
+			"medForumIDs":[104]
+		}
+	],
+	"statusInfo":{
+		"Mediator":{"color":"green","rank":5},
+		"Trusted":{"color":"blue","rank":4},
+		"Regular":{"color":"purple","rank":3},
+		"Welcher Paid Back":{"color":"#00FF33","rank":7},
+		"Welcher":{"color":"red","rank":8},
+		"BlackList":{"color":"red","rank":9},
+		"Unknown":{"color":"gray","rank":0}
+	}
+}
