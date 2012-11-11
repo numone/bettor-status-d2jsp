@@ -6,7 +6,7 @@ LabattBlue //393000
 Moofy //631753
 obisent //348326
 Pounce //556356
-Resilience | Resiliencejsp//235196
+Resilience | Resiliencejsp //235196
 smirnoffice //290980
 Suit //715514
 ToughGuy_TJ //386627
