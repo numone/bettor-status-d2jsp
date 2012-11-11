@@ -17,7 +17,7 @@
 		"Regular":{"color":"orange","rank":3},
 		"Welcher Paid Back":{"color":"fuchsia","rank":7},
 		"Welcher":{"color":"red","rank":8},
-		"BlackList":{"color":"black","rank":9},
+		"Blacklist":{"color":"black","rank":9},
 		"Unknown":{"color":"gray","rank":0}
 	}
 }
