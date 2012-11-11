@@ -1,17 +1,16 @@
 ###Mediator###
-Mediator | Aim Screen Name | Profile Link
-BuTcHeS | lll BuTcHeS lll //418486
-Chill | Chilljsp //500582
-jajaja | Rshahnyc93 //261208
-LabattBlue | johnbd2jsp //393000
-Moofy | Moof140 //631753
-obisent | anrchy259 //348326
-Pounce | kcrooLz //556356
-Resilience | Resiliencejsp //235196
-smirnoffice | chiiakasmirn //290980
-Suit | zurichjsp //715514
-ToughGuy_TJ | Bearcat512 //386627
-umade | whysomade //305906
+BuTcHeS //418486
+Chill //500582
+jajaja //261208
+LabattBlue //393000
+Moofy //631753
+obisent //348326
+Pounce //556356
+Resilience //235196
+smirnoffice //290980
+Suit //715514
+ToughGuy_TJ //386627
+umade //305906
 
 
 ###Trusted###
