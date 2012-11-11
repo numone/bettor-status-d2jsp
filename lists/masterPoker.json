@@ -12,12 +12,12 @@
 		}
 	],
 	"statusInfo":{
-		"Mediator":{"color":"green","rank":5},
+		"Mediator":{"color":"chartreuse","rank":5},
 		"Trusted":{"color":"blue","rank":4},
-		"Regular":{"color":"purple","rank":3},
-		"Welcher Paid Back":{"color":"#00FF33","rank":7},
+		"Regular":{"color":"orange","rank":3},
+		"Welcher Paid Back":{"color":"fuchsia","rank":7},
 		"Welcher":{"color":"red","rank":8},
-		"BlackList":{"color":"red","rank":9},
+		"BlackList":{"color":"black","rank":9},
 		"Unknown":{"color":"gray","rank":0}
 	}
 }
