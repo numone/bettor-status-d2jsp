@@ -3,7 +3,7 @@
 	"sports":[
 		{
 			"list":"http://johnyr.net/poker/pokerlist.png",
-			"title":"Poker",
+			"title":"Poker Status",
 			"listRunner":[
 				{"name": "Resilience","link": "http://forums.d2jsp.org/user.php?i=235196"}
 			],
