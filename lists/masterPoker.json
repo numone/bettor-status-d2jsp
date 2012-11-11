@@ -15,7 +15,7 @@
 		"Mediator":{"color":"chartreuse","rank":5},
 		"Trusted":{"color":"blue","rank":4},
 		"Regular":{"color":"orange","rank":3},
-		"Welcher Paid Back":{"color":"fuchsia","rank":7},
+		"Paid Back":{"color":"fuchsia","rank":7},
 		"Welcher":{"color":"red","rank":8},
 		"Blacklist":{"color":"black","rank":9},
 		"Unknown":{"color":"gray","rank":0}
