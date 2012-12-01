@@ -4,12 +4,12 @@
 //globals
 var VERSION = 3.02;
 var CACHE_TIME = 1000 * 60 * 60; //1000 to convert to seconds, 60 to convert to min, 60 for 60 minutes
-var HEADER_URL = 'http://bettor-status-d2jsp.googlecode.com/svn/lists/master.json';
+var HEADER_URL = 'http://bettor-status-d2jsp.googlecode.com/svn/lists/master.json'; //link to the master JSON file
 var PAGE_TYPE = window.location.href.match(/\/topic\.php/) ? 'thread'
 	: window.location.href.match(/\/pm\.php\?c\=3/) ? 'pm'
 	: window.location.href.match(/\/user\.php/) ? 'user'
 	: window.location.href.match(/\/settings\.php/) ? 'settings'
-	: 'UNKNOWN';
+	: 'UNKNOWN';// defines what type of page we're on
 var LIST = {}; // holds the list of everything
 
 // universal fieldset
@@ -17,7 +17,9 @@ $('BODY').append('<fieldset style="padding:5px;position:absolute;z-index:100;bac
 $('#bsFieldset LEGEND IMG').click(function(){$('#bsFieldset').hide();});
 $('#bsFieldset').hide();
 
-
+/*
+This function shows the preferences options available, defaults to what the user has saved, also gives an option to flush the data - called from showPreferencesLink
+*/
 function showPreferencesMenu(){
 	$('BODY').css({'overflow':'hidden'});
 	$('BODY').append('<div id="Bettor_Status_bkgrnd" style="position:absolute;top:0%;left:0%;width:100%;height:100%;background-color:black;z-index:1001;-moz-opacity:0.6;opacity:.60;filter:alpha(opacity=60)">' +
@@ -66,14 +68,20 @@ function showPreferencesMenu(){
 	}
 };
 
+/*
+This function shows the link to open the preferences menu, shows on the settings page - called from parsePage
+*/
 function showPreferencesLink(){
-	//$('BODY DIV.bar DIV.barR').append('<a href="#" id="Bettor_Status_pref">Bettor Status Settings</a>');
 	$('BODY TABLE DL DD UL.mL').append('<li><a href="#" id="Bettor_Status_pref">Bettor Status Settings</a></li>');
 	$('#Bettor_Status_pref').click(function(){
 		showPreferencesMenu();
 	});
 };
 
+/*
+This function is responsible for figuring out the status of the user. First it needs to make sure we want that sport showing, then 
+if we want them combined or separate, then figure out the highest ranked status after that - called from parsePage
+*/
 function showStatus(nameList,nameHolders){
 	for(var i=0;i<nameList.length;i++){
 		var resultsArray = [];
@@ -121,6 +129,9 @@ function showStatus(nameList,nameHolders){
 	}
 };
 
+/*
+This function shows a box that is clicked when the link to the user's status is clicked - only used when there is one sport - called from showStatus
+*/
 function showSingleSportInfo(id,link){
 	var offset = $(link).offset();
 	var sportInfo = LIST.sports[id];
@@ -132,6 +143,9 @@ function showSingleSportInfo(id,link){
 	}	
 };
 
+/*
+This function shows a box that is clicked when the link to the user's status is clicked - only used when there is more than 1 sport - called from showStatus
+*/
 function showMultiSportsInfo(resultsArray,link){
 	var offset = $(link).offset();
 	$('#bsFieldset').css({top:offset.top,left:offset.left}).show();
@@ -147,6 +161,9 @@ function showMultiSportsInfo(resultsArray,link){
 	}
 };
 
+/*
+This will draw the status tag on the page below the profile - called from showStatus,showMultiSportsInfo
+*/
 function colorTheStatus(status){
 	if(LIST.statusInfo[status]){
 		return '<span style="color:' + LIST.statusInfo[status].color + ';font-weight:bold;">' + status + '</span>';
@@ -155,6 +172,9 @@ function colorTheStatus(status){
 	}
 };
 
+/*
+This function decides if the current form's sport has a mediator list for it - called from parsePage
+*/
 function showMedList(){
 	var forumID = parseInt(window.location.href.split('&f=')[1]);
 	var theSport = false;
@@ -180,6 +200,9 @@ function showMedList(){
 	});
 };
 
+/*
+This function generates the list of mediators that are available to mediate that sport - called from showMedList
+*/
 function showMediators(sportObj,link){
 	var offset = $(link).offset();
 	$('#bsFieldset').css({top:offset.top,left:offset.left}).show();
@@ -194,6 +217,9 @@ function showMediators(sportObj,link){
 	}
 };
 
+/*
+This function is responsible for deciding what needs to be shown on each page, then will call the appropriate functions - called from retrieveHeader,retrieveCache,gatherSport
+*/
 function parsePage(){
 	var names = [],nameHolders = [];
 	switch(PAGE_TYPE){
@@ -241,6 +267,9 @@ function parsePage(){
 	showFlushLink();
 };
 
+/*
+This function shows the version of the script, cache time, and a flush link at the bottom of every page - called from parsePage
+*/
 function showFlushLink(){
 	var timeAgo = Math.round(((new Date().getTime()) - (localStorage['BSExpireTime'] - CACHE_TIME)) / 60000);
 	$('BODY DIV.crt.links').append(' | Bettor Status version: ' + VERSION.toFixed(2) + ', <span id="BSBottomSpan">cached for ' + timeAgo + ' minutes <a href="javascript:void(0);" id="BSBottomFlush">flush</a></span>');
@@ -250,6 +279,9 @@ function showFlushLink(){
 	});
 };
 
+/*
+This function will call the chrome background page to get a sport list, will self-call until it is through all the sports - called from gatherSport and retrieveHeader
+*/
 function gatherSport(sequence){
 	if(sequence + 1 > LIST.sports.length){
 		//save to cache
@@ -273,6 +305,9 @@ function gatherSport(sequence){
 	});
 };
 
+/*
+This function takes the non-formatted list of names and converts it into javascript objects - called from gatherSport
+*/
 function parseNames(sequence,responseText){
 	var userStatus;
 	responseText = responseText.replace(/\r\n|\r|\n/gi,'#EL##SL#');
@@ -304,6 +339,9 @@ function parseNames(sequence,responseText){
 	}
 };
 
+/*
+General utility function for displaying an error message nicely on the screen - called from retrieveHeader,gatherSport
+*/
 function showErrorMsg(msg){
 	var div = document.createElement('DIV');
 	$(div).css({
@@ -319,7 +357,11 @@ function showErrorMsg(msg){
 	document.body.appendChild(div);
 };
 
-function retrieveCache(){//return false;
+/*
+called globally, checks to see if we can use cached data - called from global
+	returns true if we can use cached data, false if we cannot
+*/
+function retrieveCache(){
 	var expTime = localStorage['BSExpireTime'];
 	if(!expTime){//first load?
 		return false;
@@ -334,6 +376,9 @@ function retrieveCache(){//return false;
 	return true;
 };
 
+/*
+called globally when cache data is expired or not available. will grab the JSON data to tell it about the sports it needs to show - called from global
+*/
 function retrieveHeader(){
 	chrome.extension.sendRequest({url:HEADER_URL + '?' + (new Date().getTime())},function(response){
 		if(!response){
@@ -350,4 +395,4 @@ function retrieveHeader(){
 };
 
 
-retrieveCache() || retrieveHeader();
+retrieveCache() || retrieveHeader(); //retrieve the cached data, if expired or non existant try to get fresh data
