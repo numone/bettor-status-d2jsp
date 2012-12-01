@@ -7,7 +7,6 @@ GangStarr //264122
 Gfgrice //373854
 Hokies //356284
 judson04 //383783
-Kargus //471027
 Max(Cc) //227147
 numone //172915
 Randolph //313394
@@ -29,10 +28,8 @@ Frazzles
 Frozen
 good_Duels
 GSY
-iinfuZe
 Inudan
 JeanR
-Koldhearted
 LegendaryIcicle //369280
 Lil_Rowdy
 macfinn
@@ -65,13 +62,14 @@ bena2005
 BigBalluh
 BoTooH
 cambovenzi
+CeMeTeRy
 Crashnburn_819
 Crispers
 cruelwords
-Detroitt
 DOM_innate
 dTpBeaTDoWN
 drxscillator
+EGucci
 fuzzy159
 Gangbang
 Gein
@@ -101,15 +99,13 @@ Proint
 RiCCAY
 Salisa
 sentries
+Slowtoanger
 Superfly_B
 Suhduelerz
-sstrunks52005
-:Thanatos:
 TheBlackHole
 Tomspeople
 TritonV8
 Warning.
-wildevolution
 xnozx.
 YoYoYoYoMan
 
@@ -121,6 +117,7 @@ Barefoot_Guy
 BizzleMac
 BrenisaPub
 bulldogmitch91
+BulletAcross
 Bvent11
 chinawigga
 coolieo
@@ -210,9 +207,9 @@ BrawlBro
 Brett_Favre
 Bronco30
 Bruteforce750
-BulletAcross
 CallofCombat
 CannabisTrader
+CaptainDonk
 Carnival
 Cassior
 ccwtea
