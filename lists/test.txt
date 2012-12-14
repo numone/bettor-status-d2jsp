@@ -1,9 +1,0 @@
-###Mediator###
-persona
-DOM_innate 
-rowe  //123443
-
-###Welcher###
-Azn Masta
-persone
-personf
