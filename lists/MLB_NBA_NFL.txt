@@ -404,6 +404,7 @@ TaurineNos
 Terminal
 Th3o17
 thebank777
+TheLife
 theweirdo
 thib911
 THo
@@ -429,6 +430,7 @@ Wizzle77
 Wong42
 xKraMx
 Y2mage_Warrior
+ywfn
 Zibrah
 
 ###BlackList###
