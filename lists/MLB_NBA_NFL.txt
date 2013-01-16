@@ -1,6 +1,5 @@
 ###Mediator###
 adrew35 //408902
-ChiefBuzzin //738345
 EwokHellKite //509725
 Frozen //236503
 Gfgrice //373854
@@ -16,20 +15,13 @@ Randolph //313394
 
 ###Trusted###
 18_1
-asdzx2
-babolat
 clawcool
-Danny1024
 Diggins
 Draino
-Fluminense
 good_Duels
 GangStarr //264122
 harasmussen
 Inudan
-JeanR
-LegendaryIcicle //369280
-Lil_Rowdy
 macfinn
 Maclin
 Msteph
@@ -41,11 +33,9 @@ SimCity //387060
 TDizzle
 TJZRoCKeR //639511
 tuckerblair89
-Valorcide
 VF_Falcon
 Vickissick07
 Wine
-ZachT927
 Zoboomafoo
 
 ###Active###
@@ -53,18 +43,21 @@ AkiNoS
 Altuve
 autumned
 austinhb
+asdzx2
+babolat
 Bandito89
 bena2005
-BoTooH
 cambovenzi
 CeMeTeRy
 Crashnburn_819
 Crispers
 cruelwords
+Danny1024
 DOM_innate
 dTpBeaTDoWN
 drxscillator
 EGucci
+Fluminense
 fuzzy159
 Gangbang
 Gein
@@ -73,14 +66,15 @@ HEIDTB
 inny11
 jackzors
 Jarome
+JeanR
 joshd21
 JvT51091
 Kadger
 Kamahl16
 kazium
 kevindyd77
-KingTony
 knucks101
+LegendaryIcicle
 lifehouse
 Mangina
 Mariners
@@ -98,11 +92,11 @@ Slowtoanger
 sstrunks52005
 Superfly_B
 Suhduelerz
-Tomspeople
 TritonV8
 Warning.
 xnozx.
 YoYoYoYoMan
+ZachT927
 
 
 ###Welcher Paid Back###
