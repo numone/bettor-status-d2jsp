@@ -14,6 +14,7 @@ Randolph //313394
 
 ###Trusted###
 18_1
+Crashnburn_819
 SheriffCool
 Diggins
 Draino
@@ -21,19 +22,21 @@ good_Duels
 GangStarr //264122
 harasmussen
 Inudan
+joshd21
+Kadger
 macfinn
 Msteph
 rita313
 RshahNyC //373774
 jajaja //261208
 SaF7
-SimCity //387060
 TDizzle
 TJZRoCKeR //639511
 tuckerblair89
 VF_Falcon
 Vickissick07
 Wine
+xnozx.
 Zoboomafoo
 
 ###Active###
@@ -47,7 +50,6 @@ Bandito89
 bena2005
 cambovenzi
 CeMeTeRy
-Crashnburn_819
 Crispers
 cruelwords
 Danny1024
@@ -64,9 +66,7 @@ inny11
 jackzors
 Jarome
 JeanR
-joshd21
 JvT51091
-Kadger
 Kamahl16
 kazium
 kevindyd77
@@ -92,7 +92,7 @@ Suhduelerz
 TheBlackHole
 TritonV8
 Warning.
-xnozx.
+
 YoYoYoYoMan
 ZachT927
 
@@ -419,6 +419,7 @@ Warbuck
 Weedman_420
 Whyte_Midnight
 Wil
+WilliamJamesMurray
 Wisco
 Wizzle77
 Wong42
@@ -435,3 +436,4 @@ DR1
 kkpkpkkp
 Maclin
 fuzzy159
+SimCity
