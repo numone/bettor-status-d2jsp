@@ -2,7 +2,6 @@
 adrew35 //408902
 Frozen //236503
 Gfgrice //373854
-GSY //317663
 Hokies //356284
 judson04 //383783
 Max(Cc) //227147
@@ -20,6 +19,7 @@ Diggins
 Draino
 good_Duels
 GangStarr //264122
+GSY //317663
 harasmussen
 Inudan
 joshd21
