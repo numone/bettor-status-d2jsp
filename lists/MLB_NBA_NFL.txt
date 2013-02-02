@@ -1,5 +1,6 @@
 ###Mediator###
 adrew35 //408902
+Diggins //390258
 Frozen //236503
 Gfgrice //373854
 Hokies //356284
@@ -8,14 +9,13 @@ Max(Cc) //227147
 numone //172915
 ppkpkppk //41942
 Randolph //313394
-
+SheriffCool //342357
+xnozx. //155515
 
 
 ###Trusted###
 18_1
 Crashnburn_819
-SheriffCool
-Diggins
 Draino
 good_Duels
 GangStarr //264122
@@ -36,7 +36,6 @@ tuckerblair89
 VF_Falcon
 Vickissick07
 Wine
-xnozx.
 Zoboomafoo
 
 ###Active###
@@ -271,6 +270,7 @@ FSUEagles34
 fufufournier
 Fujative
 Fuzed
+Fuzzy0681 //404619
 Gaylittlefairy
 GenRumor
 Gfed2
