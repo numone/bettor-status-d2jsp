@@ -14,7 +14,6 @@ BB_MelloYello //502380
 
 ###Active###
 badasses
-bigwillystylz
 blue_fire
 c4nes
 Caedus
@@ -32,7 +31,7 @@ Dragoneth
 Dunwatchme
 Epidermis
 Equable
-Flour
+Farine
 FunOnABun
 Gixxer
 grover09
@@ -73,6 +72,7 @@ Stealth
 Subban
 Swash
 system_slave
+Tavargod
 theduckmilker
 tim226
 Toshster
