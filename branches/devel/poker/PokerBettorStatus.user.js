@@ -134,7 +134,7 @@ function showSingleSportInfo(id,link){
 	var sportInfo = LIST.sports[id];
 	$('#psFieldset').css({top:offset.top,left:offset.left}).show();
 	$('#psFieldset LEGEND SPAN').html(sportInfo.title + ' Info');
-	$('#psFieldset DIV.main').html('<a href="' + sportInfo.list + '" target="_blank">Link To ' + sportInfo.title + ' List Image</a><br /><br />List Ran By:<br />');
+	$('#psFieldset DIV.main').html('<a href="' + sportInfo.list + '" target="_blank">Link To ' + sportInfo.title + ' List Image</a><br /><br />List Ran By: ');
 	for(var i=0;i<sportInfo.listRunner.length;i++){
 		$('#psFieldset DIV.main').append('<a href="' + sportInfo.listRunner[i].link + '" target="_blank">'  + sportInfo.listRunner[i].name + '</a><br />');
 	}	
