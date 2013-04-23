@@ -136,7 +136,7 @@ function showSingleSportInfo(id,link){
 	$('#psFieldset LEGEND SPAN').html(sportInfo.title + ' Info');
 	$('#psFieldset DIV.main').html('<a href="' + sportInfo.list + '" target="_blank">Link To ' + sportInfo.title + ' List Image</a><br /><br />List Ran By: ');
 	for(var i=0;i<sportInfo.listRunner.length;i++){
-		$('#psFieldset DIV.main').append('<a href="' + sportInfo.listRunner[i].link + '" target="_blank">'  + sportInfo.listRunner[i].name + '</a><br />');
+		$('#psFieldset DIV.main').append('<a href="' + sportInfo.listRunner[i].link + '" target="_blank">'  + sportInfo.listRunner[i].name + '</a>');
 	}	
 };
 
