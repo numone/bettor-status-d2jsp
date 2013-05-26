@@ -26,6 +26,7 @@ Wopsey
 ###Regular###
 AshaMed
 Buxx
+Champ
 Dream_5241
 Genetics
 Gotta
