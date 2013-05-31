@@ -1,7 +1,6 @@
 ###Mediator###
 B_R_A_D //346933
 BuTcHeS //418486
-Chill //500582
 jajaja //261208
 LabattBlue //393000
 magicbouba //211625
@@ -15,6 +14,7 @@ Whiskers //416393
 
 
 ###Trusted###
+Chill
 icednine
 lvlark
 Moofy
