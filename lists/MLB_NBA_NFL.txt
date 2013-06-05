@@ -141,6 +141,7 @@ PGA
 Philosopher1
 RADickey
 SBA
+Sefira //923456
 StealthGodx 
 TheWilpons
 TropicThunder
@@ -393,7 +394,6 @@ sak33p
 Salrandin
 Sarasota
 SeeSaw
-Sefira //923456
 Sepharoth
 Shaqtus
 SheWantsRevenge
