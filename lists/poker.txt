@@ -27,6 +27,7 @@ Wopsey
 AshaMed
 Buxx
 Champ
+Fokse
 Genetics
 Gotta
 Habit
