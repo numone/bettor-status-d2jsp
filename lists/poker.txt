@@ -25,7 +25,6 @@ Wopsey
 
 ###Regular###
 AshaMed
-Buxx
 Champ
 Fokse
 Genetics
