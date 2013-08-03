@@ -1,6 +1,7 @@
 ###Mediator###
 B_R_A_D //346933
 BuTcHeS //418486
+Chill //500582
 jajaja //261208
 LabattBlue //393000
 Resilience //235196
@@ -12,7 +13,6 @@ wouldbe //499959
 
 
 ###Trusted###
-Chill
 icednine
 lvlark
 Magicbouba
