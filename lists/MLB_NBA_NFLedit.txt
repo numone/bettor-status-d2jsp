@@ -17,7 +17,6 @@ SheriffCool //342357
 ###Trusted###
 18_1
 Benny21
-Crashnburn_819
 Draino
 good_Duels
 GangStarr //264122
@@ -450,6 +449,7 @@ Zibrah
 
 ###BlackList###
 Eniac
+Crashnburn_819
 MarijuanBlessMe
 michealjordan
 OxyCoCeT
