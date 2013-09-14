@@ -2,6 +2,7 @@
 Chill //500582
 jajaja //261208
 LabattBlue //393000
+Magicbouba //211625
 Moofy //631753
 Resilience //235196
 ToughGuy_TJ //386627
@@ -13,7 +14,6 @@ wouldbe //499959
 ###Trusted###
 Butches
 lvlark
-Magicbouba
 obisent
 sarge799
 sublim3
