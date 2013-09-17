@@ -3,7 +3,7 @@
 **************************************/
 //globals
 var POKERSTATUS = {
-	VERSION:1.03,
+	VERSION:1.04,
 	CACHE_TIME:1000 * 60 * 60, //1000 to convert to seconds, 60 to convert to min, 60 for 60 minutes
 	HEADER_URL: 'http://bettor-status-d2jsp.googlecode.com/svn/lists/masterPoker.json',
 	PAGE_TYPE : window.location.href.match(/\/topic\.php/) ? 'thread'
@@ -201,20 +201,20 @@ function parsePage(){
 	var names = [],nameHolders = [];
 	switch(POKERSTATUS.PAGE_TYPE){
 		case 'thread':
-			$('BODY DIV.tbb FORM[name="REPLIER"] DL').has('TABLE.ftb').find('DT A[href^="user.php"]').each(function(){
+			$('BODY DIV.tbb FORM[name="REPLIER"] DL DT A[href^="user.php"]').each(function(){
 				names.push($(this).text());
 			});
 			console.log(names);
-			$('BODY DIV.tbb FORM[name="REPLIER"] DL DD TABLE.ftb TBODY TR TD.bc1').each(function(){
+			$('BODY DIV.tbb FORM[name="REPLIER"] DL DD DIV.pud').each(function(){
 				nameHolders.push(this);
 			});
 			console.log(nameHolders.length);
 			break;
 		case 'pm':
-			$('BODY FORM[name="a"] TABLE:eq(0) TR TD DL DT A[href^="user.php"]').each(function(){
+			$('BODY FORM[name="a"] DL.c DT A[href^="user.php"]').each(function(){
 				names.push($(this).text());
 			});
-			$('BODY FORM[name="a"] TABLE:eq(0) TR TD DL DD TABLE TD.bc1').each(function(){
+			$('BODY FORM[name="a"] DL.c DD DIV.pud').each(function(){
 				nameHolders.push(this);
 			});
 			break;
