@@ -1,4 +1,5 @@
 ###Mediator###
+AshaMed //787640
 Chill //500582
 jajaja //261208
 LabattBlue //393000
@@ -21,7 +22,6 @@ TkM
 
 
 ###Regular###
-AshaMed
 Champ
 Drugsandalcohol
 Fokse
@@ -34,7 +34,9 @@ Quasi
 Royal3
 seppel123
 Stolem
+TRD
 Trispec
+Wiken
 Youknowmesonic
 
 
