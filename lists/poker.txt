@@ -22,7 +22,6 @@ TkM
 
 
 ###Regular###
-Champ
 Drugsandalcohol
 Fokse
 Genetics
