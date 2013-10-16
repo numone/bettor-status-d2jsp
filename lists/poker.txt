@@ -22,7 +22,6 @@ TkM
 
 
 ###Regular###
-a
 Drugsandalcohol
 Fokse
 Genetics
