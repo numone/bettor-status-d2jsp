@@ -21,7 +21,6 @@ TkM
 
 
 ###Regular###
-Drugsandalcohol
 Fokse
 Genetics
 Habit
