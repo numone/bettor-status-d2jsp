@@ -427,6 +427,7 @@ SkM
 sMoKeMe
 snow_boy
 socialD
+sport_vaasa
 Stadium
 SuperMitten22
 SurgeSoda
@@ -465,7 +466,8 @@ Wong42
 xKraMx
 Y2mage_Warrior
 ywfn
-Zibrahsport_vaasa
+Zibrah
+
 
 ###BlackList###
 Eniac
