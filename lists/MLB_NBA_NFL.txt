@@ -471,6 +471,8 @@ Zibrah
 
 
 ###BlackList###
+clawcool
+DarkMarine
 Eniac
 MarijuanBlessMe
 michealjordan
