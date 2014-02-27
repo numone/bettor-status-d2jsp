@@ -3,6 +3,7 @@ adrew35 //408902
 Diggins //390258
 Frozen //236503
 Gfgrice //373854
+harasmussen //511167
 Hokies //356284
 judson04 //383783
 Max(Cc) //227147
@@ -29,7 +30,6 @@ good_Duels
 GangStarr //264122
 GSY //317663
 Hako
-harasmussen
 Inudan
 joshd21
 Lil_Rowdy //256974
@@ -348,6 +348,7 @@ JuVHunT
 Karamizov
 KimboSlice74
 Kinesis
+KLPRODIGY
 Kokaines
 KMFDM
 KnicksRule69
