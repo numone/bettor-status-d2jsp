@@ -1,6 +1,7 @@
 ###Mediator###
 adrew35 //408902
 Diggins //390258
+EwokHellKite //509725
 Frozen //236503
 Gfgrice //373854
 harasmussen //511167
@@ -26,7 +27,6 @@ Danny1024
 MCW //170442
 Deagol
 Draino
-EwokHellKite //509725
 good_Duels
 GangStarr //264122
 GSY //317663
