@@ -2,10 +2,10 @@
 	"version": 1.04,
 	"sports":[
 		{
-			"list":"http://johnyr.net/poker/pokerlist.png",
+			"list":"http://poker.bettor-status.net/bettor_list.jpg",
 			"title":"Poker Status",
 			"listRunner":[
-				{"name": "Sublim3","link": "http://forums.d2jsp.org/user.php?i=239017"}
+				{"name": "Resilience","link": "http://forums.d2jsp.org/user.php?i=235196"}
 			],
 			"namesURL": "http://bettor-status-d2jsp.googlecode.com/svn/lists/poker.txt",
 			"medForumIDs":[104]
