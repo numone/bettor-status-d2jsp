@@ -1,7 +1,6 @@
 ###Mediator###
 BuTcHeS //418486
 Chill //500582
-Fokse //228396
 jajaja //261208
 LabattBlue //393000
 magicbouba //211625
@@ -13,6 +12,7 @@ Resilience //235196
 
 
 ###Trusted###
+Fokse
 lvlark
 obisent
 sarge799
