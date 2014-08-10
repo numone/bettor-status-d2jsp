@@ -162,6 +162,7 @@ LastWeek
 KingEdgar
 MadMartigan
 Metamorphisis
+n3rd
 ohDOYLErules
 On3Fals3Mov3
 PGA
@@ -390,7 +391,6 @@ MrBobMarley
 Mr_Luck_Box
 mr_fel
 Mrhale
-n3rd
 nato_420
 noun
 NCA
