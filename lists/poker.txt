@@ -13,7 +13,6 @@ wouldbe //499959
 
 
 ###Trusted###
-Fokse
 lVlark
 obisent
 sarge799
