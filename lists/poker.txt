@@ -1,6 +1,5 @@
 ###Mediator###
 BuTcHeS //418486
-Chill //500582
 Fokse //228396
 jajaja //261208
 LabattBlue //393000
@@ -14,6 +13,7 @@ wouldbe //499959
 
 
 ###Trusted###
+Chill
 lVlark
 obisent
 sarge799
