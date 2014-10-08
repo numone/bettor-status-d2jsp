@@ -1,7 +1,6 @@
 ###Mediator###
 BuTcHeS //418486
 Fokse //228396
-jajaja //261208
 LabattBlue //393000
 magicbouba //211625
 Moofy //631753
@@ -15,6 +14,7 @@ wouldbe //499959
 
 ###Trusted###
 Chill
+jajaja
 lVlark
 obisent
 sarge799
