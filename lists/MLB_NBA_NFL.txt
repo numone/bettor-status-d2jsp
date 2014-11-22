@@ -173,7 +173,8 @@ Prone
 RADickey //911724
 SBA
 Sefira //923456
-StealthGodx 
+StealthGodx
+TheLife
 TheWilpons
 TropicThunder
 ttam519
@@ -458,7 +459,6 @@ Terminal
 Th3o17
 thebank777
 TheCompany
-TheLife
 theweirdo
 thib911
 THo
