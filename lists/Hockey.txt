@@ -2,15 +2,16 @@
 BB_MelloYello //502380
 Cratic //280200
 LooseyGoosey11 //518812
-tomspeople  //198576
 jbell886 //108435
 LilCanadian //308731
 h4bs //383767
+Darc-Deth //212769
 
 ###Trusted###
 dxlightning //433169
 Crispers  //542172
-
+tomspeople //198576
+Pens //391600
 
 ###Active###
 atheneh
@@ -25,7 +26,6 @@ chojo
 chreeeis
 CooLSmuRFeR24
 cruzader
-Darc-Deth
 dej
 dirtyman
 DonaldBalbu
@@ -60,7 +60,6 @@ nimnim2500
 Olfongodar
 partank
 Patches
-Pens
 PhewPhew
 Proint
 rattle-trap
