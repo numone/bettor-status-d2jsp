@@ -31,7 +31,6 @@ HellG
 infallibleleo
 Jays
 Prominence
-Quasi
 Rebuy
 SnapCity
 SnowmanA1
@@ -2532,6 +2531,7 @@ PUYU
 QIZZ
 QRAZY
 QUADS
+QUASI
 RAIDENWS
 RANKED
 RAPCITY
