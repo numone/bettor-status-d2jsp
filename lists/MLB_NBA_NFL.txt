@@ -2,7 +2,6 @@
 adrew35 //408902
 Crashnburn_819 //367288
 Diggins //390258
-EwokHellKite //509725
 Frozen //236503
 Gfgrice //373854
 harasmussen //511167
@@ -282,6 +281,7 @@ Crxx
 CustomPlayerz
 curtissparker
 Cynewulf
+EwokHellKite //509725
 D2Dan
 d2-for-you
 D2jspLife
