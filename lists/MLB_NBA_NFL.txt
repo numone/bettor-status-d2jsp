@@ -154,7 +154,6 @@ GODBAAL
 Greet
 Greetings
 Grumblee
-HANGRY
 highagain420
 Honestly
 Hyphy
@@ -334,6 +333,7 @@ GoUSA
 Griffey
 Hallubalozza
 Hamilton08
+HANGRY
 HardworK1
 heat3d
 Hemmy
@@ -460,6 +460,7 @@ SuperMitten22
 SurgeSoda
 Syutt
 TaurineNos
+TeaBaggery
 Terminal
 Th3o17
 thebank777
@@ -497,6 +498,7 @@ Zibrah
 
 
 ###BlackList###
+Babolat
 BuckeyesNationalChampions
 clawcool
 DarkMarine
