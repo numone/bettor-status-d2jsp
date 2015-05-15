@@ -16,6 +16,7 @@ SaF7 //372107
 SheriffCool //342357
 wydz //731071
 umade //305906
+xVitality //418391
 
 
 ###Trusted###
@@ -53,7 +54,7 @@ VF_Falcon
 Vickissick07
 WesWelker
 xnozx.
-xVitality
+
 Zoboomafoo
 
 
