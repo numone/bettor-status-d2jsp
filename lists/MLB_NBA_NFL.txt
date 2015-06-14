@@ -22,8 +22,8 @@ xVitality //418391
 ###Trusted###
 18_1
 Benny21
+Cheesehead
 Danny1024
-MCW //170442
 Deagol
 Draino
 DyNaMiCz
@@ -36,6 +36,7 @@ Inudan
 joshd21
 Lil_Rowdy //256974
 macfinn
+MCW //170442
 Mustangman
 Msteph
 Mpn
@@ -70,7 +71,6 @@ Bob(cs2)
 Bluth
 Brendon
 cambovenzi
-Cheesehead
 Clicquot
 Crispers
 DeMarcus
