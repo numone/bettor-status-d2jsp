@@ -1,0 +1,32 @@
+{
+    "version": 3.03,
+    "sports":[
+        {
+            "list":"http://www.bettorslist.com",
+            "title":"NBA/MLB/NFL",
+            "listRunner":[
+                {"name": "SheriffCool","link": "http://forums.d2jsp.org/user.php?i=342357"}
+            ],
+            "namesURL": "http://bettor-status-d2jsp.googlecode.com/svn/lists/MLB_NBA_NFL.txt",
+            "medForumIDs":[201,202,204]
+        },
+        {
+            "list":"http://i3.photobucket.com/albums/y62/Cratic/List.jpg",
+            "title":"Hockey",
+            "listRunner":[
+                {"name":"Cratic","link":"http://forums.d2jsp.org/user.php?i=280200"}
+            ],
+            "namesURL": "http://bettor-status-d2jsp.googlecode.com/svn/lists/Hockey.txt",
+            "medForumIDs":[203]
+        }
+    ],
+    "statusInfo":{
+        "Mediator":{"color":"green","rank":5},
+        "Trusted":{"color":"blue","rank":4},
+        "Active":{"color":"purple","rank":3},
+        "Welcher Paid Back":{"color":"#00FF33","rank":7},
+        "Welcher":{"color":"red","rank":8},
+        "BlackList":{"color":"red","rank":9},
+        "Unknown":{"color":"gray","rank":0}
+    }
+}
