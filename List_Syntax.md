@@ -1,0 +1,19 @@
+I have removed a lot of the javascript syntax requirements. I am using some regular expressions to parse the list instead. Hopefully I did an adequate job.
+
+use the following syntax:
+```
+###Mediator###
+numone //453423
+TJZRocker
+Cratic //434201
+
+###Welcher###
+gait
+someonewhosucks
+```
+
+  * the //number isn't required, but is recommended for the meds at least so the med list can link them correctly.
+  * the status (word between the ###'s) will need to match (case and space sensitive) the status here ( http://bettor-status-d2jsp.googlecode.com/svn/lists/master.json ). otherwise it wont get a proper rank number or color formatting.
+  * having extra line breaks between names or spaces before the //number etc is fine, I have compensated for that.
+  * you can call the file name for your sport whatever you want, just please put it in the "lists" folder, it will need to be matched up with the sport in master.json
+  * if you are still confused you can look at this for some example ( http://bettor-status-d2jsp.googlecode.com/svn/lists/test.txt )
