@@ -1,5 +1,5 @@
 {
-    "version": 3.03,
+    "version": 3.04,
     "sports":[
         {
             "list":"http://www.bettorslist.com",
@@ -7,7 +7,7 @@
             "listRunner":[
                 {"name": "SheriffCool","link": "http://forums.d2jsp.org/user.php?i=342357"}
             ],
-            "namesURL": "http://bettor-status-d2jsp.googlecode.com/svn/lists/MLB_NBA_NFL.txt",
+            "namesURL": "https://raw.githubusercontent.com/numone/bettor-status-d2jsp/devel/lists/MLB_NBA_NFL.txt",
             "medForumIDs":[201,202,204]
         },
         {
@@ -16,7 +16,7 @@
             "listRunner":[
                 {"name":"Cratic","link":"http://forums.d2jsp.org/user.php?i=280200"}
             ],
-            "namesURL": "http://bettor-status-d2jsp.googlecode.com/svn/lists/Hockey.txt",
+            "namesURL": "https://raw.githubusercontent.com/numone/bettor-status-d2jsp/devel/lists/Hockey.txt",
             "medForumIDs":[203]
         }
     ],

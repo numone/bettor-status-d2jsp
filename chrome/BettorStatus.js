@@ -2,9 +2,9 @@
 ** COPYRIGHT NUMONE@D2jsp.org ******
 **************************************/
 //globals
-var VERSION = 3.03;
+var VERSION = 3.04;
 var CACHE_TIME = 1000 * 60 * 60; //1000 to convert to seconds, 60 to convert to min, 60 for 60 minutes
-var HEADER_URL = 'http://bettor-status-d2jsp.googlecode.com/svn/lists/master.json'; //link to the master JSON file
+var HEADER_URL = 'https://raw.githubusercontent.com/numone/bettor-status-d2jsp/devel/lists/master.json'; //link to the master JSON file
 var PAGE_TYPE = window.location.href.match(/\/topic\.php/) ? 'thread'
 	: window.location.href.match(/\/pm\.php\?c\=3/) ? 'pm'
 	: window.location.href.match(/\/user\.php/) ? 'user'

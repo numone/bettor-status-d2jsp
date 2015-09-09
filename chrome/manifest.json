@@ -8,7 +8,7 @@
    } ],
    "description": "Puts the betting status of the person in their avatar",
    "name": "Bettor Status",
-   "permissions": [ "http://bettor-status-d2jsp.googlecode.com/svn/lists/*" ],
-   "version": "3.4",
+   "permissions": [ "https://raw.githubusercontent.com/numone/bettor-status-d2jsp/devel/lists/*" ],
+   "version": "3.5",
    "manifest_version":2
 }
