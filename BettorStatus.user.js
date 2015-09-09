@@ -4,6 +4,7 @@
 // @description   Puts the betting status of the person in their avatar
 // @include       http://forums.d2jsp.org/*
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js
+// @version       3.04
 // ==/UserScript==
 /**************************************
 ** COPYRIGHT NUMONE@D2jsp.org ******
